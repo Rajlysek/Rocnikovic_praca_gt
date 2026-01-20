@@ -29,46 +29,21 @@ public class PlayerControl : MonoBehaviour
 
         if(!isMoving)
         {
-
-            _animator.SetBool("isMovingUp", false);
-            _animator.SetBool("isMovingDown", false);
-            _animator.SetBool("isMovingLeft", false);
-            _animator.SetBool("isMovingRight", false);
+            _animator.SetBool("isMoving", false);
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            if(input != Vector2.zero) 
+            if (input != Vector2.zero)
             {
-                var targetPos = rb2.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
-
-                _animator.SetBool("isRunning", true);
-                if (input.x == 1)
-                {
-                    _animator.SetBool("isMovingRight", true);
-                    _animator.SetBool("isRunning", true);
-                }
-                if (input.x == -1)
-                {
-                    _animator.SetBool("isMovingLeft", true);
-                    _animator.SetBool("isRunning", true);
-                }
-                if (input.y == 1)
-                {
-                    _animator.SetBool("isMovingUp", true);
-                    _animator.SetBool("isRunning", true);
-                }
-                if (input.y == -1)
-                {
-                    _animator.SetBool("isMovingDown", true);
-                    _animator.SetBool("isRunning", true);
-                }
-            }
+     
+                _animator.SetBool("isMoving", true);
+            }  
             if(input == Vector2.zero) 
             {
-                input = Vector2.zero;
-                _animator.SetBool("isRunning", false);
+               
+                _animator.SetBool("isMoving", false);
+                
+                 input = Vector2.zero;
             }
            
            
@@ -76,38 +51,26 @@ public class PlayerControl : MonoBehaviour
         
        
         
+        
     }
     private void FixedUpdate()
     {
         rb2.MovePosition(rb2.position + input * moveSpeed * Time.fixedDeltaTime);
         if (input != Vector2.zero)
         {
-            _animator.SetBool("isRunning", true);
-            if (input.x == 1)
-            {
-                _animator.SetBool("isMovingRight", true);
-                _animator.SetBool("isRunning", true);
-            }
-            if (input.x == -1)
-            {
-                _animator.SetBool("isMovingLeft", true);
-                _animator.SetBool("isRunning", true);
-            }
-            if (input.y == 1)
-            {
-                _animator.SetBool("isMovingUp", true);
-                _animator.SetBool("isRunning", true);
-            }
-            if (input.y == -1)
-            {
-                _animator.SetBool("isMovingDown", true);
-                _animator.SetBool("isRunning", true);
-            }
+            _animator.SetBool("isMoving", true);
+
+            _animator.SetFloat("InputX", input.x);
+            _animator.SetFloat("InputY", input.y);
+            _animator.SetFloat("LastDirX", input.x);
+            _animator.SetFloat("LastDirY", input.y);
         }
         if (input == Vector2.zero)
         {
+            
+            _animator.SetBool("isMoving", false);
+           
             input = Vector2.zero;
-            _animator.SetBool("isRunning", false);
         }
 
     }
