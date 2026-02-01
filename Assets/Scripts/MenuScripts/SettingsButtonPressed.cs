@@ -13,14 +13,12 @@ public class SettingsButtonPressed : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public GameObject normalButtonSettings;
     public GameObject pressedButtonSetting;
-    public GameObject ButtonStart;
-    public GameObject ButtonQuit;
-    public GameObject settingsMenu;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        settingsMenu.SetActive(false);
+       
       
         normalButtonSettings.SetActive(true);
         pressedButtonSetting.SetActive(false);
@@ -51,7 +49,7 @@ public class SettingsButtonPressed : MonoBehaviour, IPointerEnterHandler, IPoint
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Settings", LoadSceneMode.Single);
     }
 
 }

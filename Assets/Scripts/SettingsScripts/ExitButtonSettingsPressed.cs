@@ -47,7 +47,7 @@ public class ExitButtonSettingsPressed : MonoBehaviour, IPointerEnterHandler, IP
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        SceneManager.UnloadSceneAsync("Settings");
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
 }
