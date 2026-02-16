@@ -1,5 +1,7 @@
+
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,10 +12,14 @@ public class PlayerControl : MonoBehaviour
     public bool isMoving;
 
     public Vector2 input;
+    public Vector2 lastDirection;
 
     private Rigidbody2D rb2;
 
     private Animator _animator;
+    private bool PlayerMovement;
+
+   
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,51 +31,69 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+        bool ShiftIsHeld = Input.GetKey(KeyCode.LeftShift);
+        //GETTIN AXIS FOR MOVEMENT
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
 
-        if(!isMoving)
+
+        //NORMALIZING DIAGONAL MOVEMENT
+
+        if (input.magnitude > 1)
         {
-            _animator.SetBool("isMoving", false);
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
+            input = input.normalized;
+        }
+       
+        //if(Input.GetKeyDown(KeyCode.Space) && _animator.GetInteger("ItemID") == 1) 
+        //{
+        //    input = Vector2.zero;
+        //    _animator.SetBool("isMoving", false);
+        //}
 
-            if (input != Vector2.zero)
-            {
-     
-                _animator.SetBool("isMoving", true);
-            }  
-            if(input == Vector2.zero) 
-            {
-               
-                _animator.SetBool("isMoving", false);
-                
-                 input = Vector2.zero;
-            }
-           
+
+        if (input != Vector2.zero)
+        {
+            PlayerMovement = true;
+        }
+        else
+        {
+            PlayerMovement = false;
+        }
+
+        if (PlayerMovement)
+        {
+            _animator.SetFloat("InputX", input.x);
+            _animator.SetFloat("InputY", input.y);
+            lastDirection = input;
+            _animator.SetFloat("LastDirX", lastDirection.x);
+            _animator.SetFloat("LastDirY", lastDirection.y);
+        }
+
+        _animator.SetBool("isMoving", PlayerMovement);
+        ///////////////////
+        if (ShiftIsHeld && PlayerMovement)
+        {
+            _animator.SetBool("isRunning", true);
+            moveSpeed = 10f;
            
         }
+        else
+        {
+            _animator.SetBool("isRunning", false);
+            moveSpeed = 5f;
+            
+        }
+
         
-       
-        
-        
+
     }
     private void FixedUpdate()
     {
         rb2.MovePosition(rb2.position + input * moveSpeed * Time.fixedDeltaTime);
-        if (input != Vector2.zero)
-        {
-            _animator.SetBool("isMoving", true);
-
-            _animator.SetFloat("InputX", input.x);
-            _animator.SetFloat("InputY", input.y);
-            _animator.SetFloat("LastDirX", input.x);
-            _animator.SetFloat("LastDirY", input.y);
-        }
+    
         if (input == Vector2.zero)
-        {
-            
-            _animator.SetBool("isMoving", false);
-           
+        {  
             input = Vector2.zero;
         }
 
