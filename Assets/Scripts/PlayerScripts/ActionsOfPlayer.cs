@@ -9,13 +9,12 @@ public class ActionsOfPlayer : MonoBehaviour
     [SerializeField] private Tilemap GrassTilemap;
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
-    [SerializeField] private TileBase hoedDirtTileDownCorner;
-    [SerializeField] private TileBase hoedDirtTileUpCorner;
-    [SerializeField] private TileBase hoedDirtTileLeftCorner;
-    [SerializeField] private TileBase hoedDirtTileRightCorner;
-    [SerializeField] private TileBase hoedDirtTileGoingUp;
-    [SerializeField] private TileBase hoedDirtTileGoingSide;
+    [SerializeField] private TileBase hoedDirtTileWetAlone;
+    
     private Rigidbody2D rb2;
+
+
+    public int ItemID;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,39 +27,71 @@ public class ActionsOfPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetInteger("ItemID", ItemID);
         
-        
-        //zkrontroluju zda hráè zmáèknul mezernik pro akci a nehýbe se 
-        if (Input.GetKeyDown("space") && _animator.GetBool("isMoving") == false && _animator.GetBool("isRunning") == false) 
+        switch (ItemID)
         {
-            //vezmu souradnice hrace a ze skriptu playerControl posledni direction hrace
-            Vector2 playerPosition = transform.position;
-            Vector2 LastDir = playerControlScript.lastDirection;
+            case 1:
+                //zkrontroluju zda hráè zmáèknul mezernik pro akci a nehýbe se 
+                if (Input.GetKeyDown("space") && _animator.GetBool("isMoving") == false && _animator.GetBool("isRunning") == false)
+                {
+                    //vezmu souradnice hrace a ze skriptu playerControl posledni direction hrace
+                    Vector2 playerPosition = transform.position;
+                    Vector2 LastDir = playerControlScript.lastDirection;
 
-            //sectu je at dostanu vedlejší tile
-            Vector3 TilePosition = playerPosition + LastDir;
-            
-            //prevedu na Vector3Int protoze tilemapy prijimaji jen Vector3Int
+                    //sectu je at dostanu vedlejší tile
+                    Vector3 TilePosition = playerPosition + LastDir;
 
-            Vector3Int FinalTilesPosition = HoeTilemap.WorldToCell(TilePosition);
-            Vector3Int isPlayerOnGrass = GrassTilemap.WorldToCell(TilePosition);
-            Vector3Int playerPositionInAction = GrassTilemap.WorldToCell(playerPosition);
-            
-            _animator.SetTrigger("SpaceWasPressed");
-            
-            _animator.SetInteger("ItemID", 1);
-            //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
-            if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction)) 
-            {
-                HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
+                    //prevedu na Vector3Int protoze tilemapy prijimaji jen Vector3Int
 
-                HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAlone);
-            }
-            else 
-            {
-                Debug.Log("Noting");
-            }
+                    Vector3Int FinalTilesPosition = HoeTilemap.WorldToCell(TilePosition);
+                    Vector3Int isPlayerOnGrass = GrassTilemap.WorldToCell(TilePosition);
+                    Vector3Int playerPositionInAction = GrassTilemap.WorldToCell(playerPosition);
+
+                    _animator.SetTrigger("SpaceWasPressed");
+
+                    
+                    //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
+                    if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
+                    {
+                        HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
+
+                        HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAlone);
+                    }
+                    else
+                    {
+                        Debug.Log("Noting");
+                    }
+                }
+                break;
+            case 2:
+                if (Input.GetKeyDown("space") && _animator.GetBool("isMoving") == false && _animator.GetBool("isRunning") == false) 
+                {
+                    Vector2 playerPosition = transform.position;
+                    Vector2 LastDir = playerControlScript.lastDirection;
+                    Vector3 TilePosition = playerPosition + LastDir;
+                    Vector3Int FinalTilesPosition = HoeTilemap.WorldToCell(TilePosition);
+                    _animator.SetTrigger("SpaceWasPressed");
+                    if (HoeTilemap.HasTile(FinalTilesPosition)) 
+                    {
+                        HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
+                    }
+                    else
+                    {
+                        Debug.Log("Noting There");
+                    }
+                }
+                break;
+            case 3:
+                if (Input.GetKeyDown("space")) 
+                {
+                    _animator.SetTrigger("SpaceWasPressed");
+                }
+                break;
         }
+            {
+            }
+      
     }
     void MakingHoedPath()
     {

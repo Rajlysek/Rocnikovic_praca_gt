@@ -4,8 +4,8 @@ using UnityEngine.Tilemaps;
 
 public class CameraView : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject sandBorder;
+
+   
 
     PlayerControl playerControlScript;
     [SerializeField] private Tilemap waterTilemap;

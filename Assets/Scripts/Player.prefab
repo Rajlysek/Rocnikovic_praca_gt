@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4487310638634777258}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,8 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec21936519978d4eaa2063d06865b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraView
-  player: {fileID: 0}
-  sandBorder: {fileID: 0}
   waterTilemap: {fileID: 0}
 --- !u!50 &3026546712675452390
 Rigidbody2D:
@@ -246,7 +244,7 @@ GameObject:
   - component: {fileID: 7324707542531377994}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

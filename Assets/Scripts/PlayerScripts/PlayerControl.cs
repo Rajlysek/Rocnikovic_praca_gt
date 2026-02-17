@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     private Animator _animator;
     private bool PlayerMovement;
 
+
    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
