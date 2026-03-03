@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 5337495387805903431}
   - component: {fileID: 1720852376513049036}
   - component: {fileID: 3026546712675452390}
-  - component: {fileID: 3733118633737832506}
   - component: {fileID: 9069562933525233543}
   - component: {fileID: 4487310638634777258}
-  - component: {fileID: 2223262674178712448}
+  - component: {fileID: 7273270307896427382}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -154,42 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &3733118633737832506
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4618918358075324203}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.005998373, y: -0.08397755}
-  m_Radius: 0.38854632
 --- !u!95 &9069562933525233543
 Animator:
   serializedVersion: 7
@@ -226,21 +189,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActionsOfPlayer
   GrassTilemap: {fileID: 0}
   HoeTilemap: {fileID: 0}
-  hoedDirtTileAlone: {fileID: 11400000, guid: addc1fe5c5df6984f83b51b88fa8bfe5, type: 2}
-  hoedDirtTileWetAlone: {fileID: 0}
+  hoedDirtTileAlone: {fileID: 11400000, guid: db8cd0bd9a63a0a4da254be878143f23, type: 2}
+  hoedDirtTileWetAlone: {fileID: 11400000, guid: d11366f9659255b4092058cb24d11933, type: 2}
   ItemID: 0
---- !u!114 &2223262674178712448
-MonoBehaviour:
+--- !u!70 &7273270307896427382
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4618918358075324203}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e42fce97c17c0b4581791fe1be6cbbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.017840385, y: 0}
+  m_Size: {x: 0.7145543, y: 1.125}
+  m_Direction: 0
 --- !u!1 &8695224066537038750
 GameObject:
   m_ObjectHideFlags: 0
