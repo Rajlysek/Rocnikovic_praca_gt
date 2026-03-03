@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3733118633737832506}
   - component: {fileID: 9069562933525233543}
   - component: {fileID: 4487310638634777258}
+  - component: {fileID: 2223262674178712448}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -226,12 +227,20 @@ MonoBehaviour:
   GrassTilemap: {fileID: 0}
   HoeTilemap: {fileID: 0}
   hoedDirtTileAlone: {fileID: 11400000, guid: addc1fe5c5df6984f83b51b88fa8bfe5, type: 2}
-  hoedDirtTileDownCorner: {fileID: 11400000, guid: e968c390287d564439d9a61ed8f61aa9, type: 2}
-  hoedDirtTileUpCorner: {fileID: 11400000, guid: 7dc628141048dbc43846e8a114ad5ab9, type: 2}
-  hoedDirtTileLeftCorner: {fileID: 11400000, guid: 6ae9dbf455c551b4180291b872a5326d, type: 2}
-  hoedDirtTileRightCorner: {fileID: 11400000, guid: 50b629bf883cac04ab2f507bcffe8342, type: 2}
-  hoedDirtTileGoingUp: {fileID: 11400000, guid: b4d7e9580e0c4434eb701c2ed69faa97, type: 2}
-  hoedDirtTileGoingSide: {fileID: 11400000, guid: 2cce83f0a9167084ca46eb1d32f71fda, type: 2}
+  hoedDirtTileWetAlone: {fileID: 0}
+  ItemID: 0
+--- !u!114 &2223262674178712448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618918358075324203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e42fce97c17c0b4581791fe1be6cbbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!1 &8695224066537038750
 GameObject:
   m_ObjectHideFlags: 0
