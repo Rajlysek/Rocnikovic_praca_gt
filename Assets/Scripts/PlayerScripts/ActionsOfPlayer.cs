@@ -64,9 +64,15 @@ public class ActionsOfPlayer : MonoBehaviour
                 //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
                 if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
                 {
-                    HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
-                    StartCoroutine(WaitForAnimation());
+                    if (HoeTilemap.HasTile(FinalTilesPosition))
+                    {
 
+                    }
+                    else
+                    {
+                        HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
+                        StartCoroutine(WaitForAnimation());
+                    }
                 }
                 else
                 {

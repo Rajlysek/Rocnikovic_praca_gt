@@ -19,7 +19,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     private Image ItemImage;
 
     private InventoryManager inventoryManager;
-    private InventoryManager InventoryManager;
+    
     public GameObject SelectedShader;
     public bool ThisItemHasBeenSelected;
     private void Start()

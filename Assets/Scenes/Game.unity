@@ -688,13 +688,14 @@ GameObject:
   - component: {fileID: 105724157}
   - component: {fileID: 105724159}
   - component: {fileID: 105724158}
+  - component: {fileID: 105724160}
   m_Layer: 0
   m_Name: SelectedSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &105724157
 Transform:
   m_ObjectHideFlags: 0
@@ -986,6 +987,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &105724160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105724156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &120933567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1311,7 @@ GameObject:
   - component: {fileID: 289095824}
   - component: {fileID: 289095826}
   - component: {fileID: 289095825}
+  - component: {fileID: 289095827}
   m_Layer: 0
   m_Name: UnselectedSlot (1)
   m_TagString: Untagged
@@ -1596,6 +1610,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &289095827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289095823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &301698567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,7 +1962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7778967240658538108, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
+  m_Sprite: {fileID: -3736146023192578149, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11061,13 +11087,14 @@ GameObject:
   - component: {fileID: 585247136}
   - component: {fileID: 585247138}
   - component: {fileID: 585247137}
+  - component: {fileID: 585247139}
   m_Layer: 0
   m_Name: SelectedSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &585247136
 Transform:
   m_ObjectHideFlags: 0
@@ -11359,6 +11386,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &585247139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585247135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &596849637
 GameObject:
   m_ObjectHideFlags: 0
@@ -11653,13 +11692,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 891903336}
+  - {fileID: 1676500414}
   - {fileID: 1459701908}
   - {fileID: 1389949152}
   - {fileID: 1764353118}
   - {fileID: 1621122370}
   - {fileID: 1491842794}
   - {fileID: 886170469}
-  - {fileID: 1676500414}
   - {fileID: 1299100599}
   - {fileID: 327441557}
   m_Father: {fileID: 1973924374}
@@ -12141,13 +12180,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870374801}
+  - component: {fileID: 870374802}
   m_Layer: 0
   m_Name: SelectedSlots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &870374801
 Transform:
   m_ObjectHideFlags: 0
@@ -12167,6 +12207,23 @@ Transform:
   - {fileID: 1261530167}
   m_Father: {fileID: 1278424977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870374802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870374800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296098666549cd84ea5b95a21e22b68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySelected
+  SelectedSlots:
+  - {fileID: 105724156}
+  - {fileID: 585247135}
+  - {fileID: 1763062538}
+  - {fileID: 1261530166}
 --- !u!1001 &886170468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26280,6 +26337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183507249}
+  - component: {fileID: 1183507250}
   m_Layer: 0
   m_Name: UnselectedSlots
   m_TagString: Untagged
@@ -26306,6 +26364,23 @@ Transform:
   - {fileID: 1706889591}
   m_Father: {fileID: 1278424977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183507250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183507248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bc2e8665c2fcb47b6c67a9573e2855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventoryUnselected
+  UnselectedSlots:
+  - {fileID: 2124931551}
+  - {fileID: 289095823}
+  - {fileID: 1851366281}
+  - {fileID: 1706889590}
 --- !u!1 &1257004241
 GameObject:
   m_ObjectHideFlags: 0
@@ -26455,13 +26530,14 @@ GameObject:
   - component: {fileID: 1261530167}
   - component: {fileID: 1261530169}
   - component: {fileID: 1261530168}
+  - component: {fileID: 1261530170}
   m_Layer: 0
   m_Name: SelectedSlot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1261530167
 Transform:
   m_ObjectHideFlags: 0
@@ -26753,6 +26829,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1261530170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261530166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &1278424976
 GameObject:
   m_ObjectHideFlags: 0
@@ -26763,8 +26851,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1278424977}
   - component: {fileID: 1278424978}
+  - component: {fileID: 1278424979}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: BarInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26799,6 +26888,28 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1278424979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278424976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c60b4c8ec416c419c8dfef74a983b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventory
+  SelectedSlots:
+  - {fileID: 105724156}
+  - {fileID: 585247135}
+  - {fileID: 1763062538}
+  - {fileID: 1261530166}
+  UnselectedSlots:
+  - {fileID: 2124931551}
+  - {fileID: 289095823}
+  - {fileID: 1851366281}
+  - {fileID: 1706889590}
 --- !u!1 &1293264512
 GameObject:
   m_ObjectHideFlags: 0
@@ -26856,7 +26967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2591364937925227517, guid: 29a33577873923e4c83868a8ac8375d1, type: 3}
+  m_Sprite: {fileID: -7778967240658538108, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -68717,6 +68828,7 @@ GameObject:
   - component: {fileID: 1706889591}
   - component: {fileID: 1706889593}
   - component: {fileID: 1706889592}
+  - component: {fileID: 1706889594}
   m_Layer: 0
   m_Name: UnselectedSlot (3)
   m_TagString: Untagged
@@ -69015,6 +69127,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1706889594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706889590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &1763062538
 GameObject:
   m_ObjectHideFlags: 0
@@ -69026,13 +69150,14 @@ GameObject:
   - component: {fileID: 1763062539}
   - component: {fileID: 1763062541}
   - component: {fileID: 1763062540}
+  - component: {fileID: 1763062542}
   m_Layer: 0
   m_Name: SelectedSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1763062539
 Transform:
   m_ObjectHideFlags: 0
@@ -69324,6 +69449,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1763062542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763062538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1001 &1764353117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69658,6 +69795,7 @@ GameObject:
   - component: {fileID: 1851366282}
   - component: {fileID: 1851366284}
   - component: {fileID: 1851366283}
+  - component: {fileID: 1851366285}
   m_Layer: 0
   m_Name: UnselectedSlot (2)
   m_TagString: Untagged
@@ -69956,6 +70094,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1851366285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851366281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1 &1877005663
 GameObject:
   m_ObjectHideFlags: 0
@@ -70717,6 +70867,7 @@ GameObject:
   - component: {fileID: 2124931552}
   - component: {fileID: 2124931554}
   - component: {fileID: 2124931553}
+  - component: {fileID: 2124931555}
   m_Layer: 0
   m_Name: UnselectedSlot
   m_TagString: Untagged
@@ -71015,6 +71166,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2124931555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124931551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7365f4f1519e64498531162af5cda8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySlot
 --- !u!1001 &6456515781898619876
 PrefabInstance:
   m_ObjectHideFlags: 0
