@@ -10,6 +10,9 @@ public class Item : MonoBehaviour
 
     [SerializeField]
     private Sprite sprite;
+    [TextArea]
+    [SerializeField]
+    private string itemDescription;
 
     private InventoryManager inventoryManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +31,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("colision");
-            inventoryManager.AddItem(ItemName, quantity, sprite);
+            inventoryManager.AddItem(ItemName, quantity, sprite, itemDescription);
             Destroy(gameObject);
         }
     }

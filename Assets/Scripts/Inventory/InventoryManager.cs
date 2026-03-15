@@ -28,14 +28,14 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
         }
     }
-    public void AddItem(string itemName, int quantity, Sprite itemSprite) 
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription) 
     {
        
         for (int i = 0; i < ItemSlot.Length; i++) 
         {
             if (ItemSlot[i].isFull == false) 
             {
-                ItemSlot[i].AddItem(itemName, quantity, itemSprite);
+                ItemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 return;
             }
         }
