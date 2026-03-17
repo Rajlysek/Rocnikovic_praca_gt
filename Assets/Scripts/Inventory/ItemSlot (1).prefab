@@ -167,11 +167,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ItemName: 
-  quantity: 0
+  quantity: 9
   ItemSprite: {fileID: 0}
   isFull: 0
+  itemDescription: 
+  emptySprite: {fileID: 0}
   quantityText: {fileID: 8478431176068780699}
   ItemImage: {fileID: 7563551574372827676}
+  itemDescriptionImage: {fileID: 0}
+  itemDescriptionNameText: {fileID: 0}
+  itemDescriptionText: {fileID: 0}
   SelectedShader: {fileID: 8967105166442758143}
   ThisItemHasBeenSelected: 0
 --- !u!1 &4070609392830024463

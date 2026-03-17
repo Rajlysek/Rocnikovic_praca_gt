@@ -28,17 +28,24 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
         }
     }
-    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription) 
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription) 
     {
        
         for (int i = 0; i < ItemSlot.Length; i++) 
         {
-            if (ItemSlot[i].isFull == false) 
-            {
-                ItemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                return;
+            if (!ItemSlot[i].isFull && ItemSlot[i].ItemName == itemName || ItemSlot[i].quantity == 0) 
+            { 
+                int leftOverItems = ItemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                if(leftOverItems > 0)
+                {
+                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
+                    
+                }
+                return leftOverItems;
+                
             }
         }
+        return quantity;
 
     } 
     public void DeselectAllSlots()
