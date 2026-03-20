@@ -4,14 +4,10 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
     private bool menuActivated;
-    public ItemSlot[] ItemSlot;
+    public ItemSlot[] itemSlot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -31,12 +27,13 @@ public class InventoryManager : MonoBehaviour
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription) 
     {
        
-        for (int i = 0; i < ItemSlot.Length; i++) 
+        for (int i = 0; i < itemSlot.Length; i++) 
         {
-            if (!ItemSlot[i].isFull && ItemSlot[i].ItemName == itemName || ItemSlot[i].quantity == 0) 
+            if (!itemSlot[i].isFull && itemSlot[i].ItemName == itemName || itemSlot[i].quantity == 0) 
             { 
-                int leftOverItems = ItemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                if(leftOverItems > 0)
+                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                Debug.Log(leftOverItems);
+                if (leftOverItems > 0)
                 {
                     leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
                     
@@ -50,10 +47,10 @@ public class InventoryManager : MonoBehaviour
     } 
     public void DeselectAllSlots()
     {
-        for (int i = 0; i < ItemSlot.Length; i++)
+        for (int i = 0; i < itemSlot.Length; i++)
         {
-            ItemSlot[i].SelectedShader.SetActive(false);
-            ItemSlot[i].ThisItemHasBeenSelected = false;
+            itemSlot[i].SelectedShader.SetActive(false);
+            itemSlot[i].ThisItemHasBeenSelected = false;
         }
     }
     
