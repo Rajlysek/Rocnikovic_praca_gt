@@ -7,7 +7,7 @@ public class BarInventorySelected : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        actionsOfPlayer = GameObject.Find("Player").GetComponent<ActionsOfPlayer>();
+        actionsOfPlayer = GameObject.Find("Player/Player").GetComponent<ActionsOfPlayer>();
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class BarInventorySelected : MonoBehaviour
     }
     public void WaitForButton()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && actionsOfPlayer != null)
         {
             DeselectAllSlots();
             SelectedSlots[0].SetActive(true);
@@ -41,6 +41,7 @@ public class BarInventorySelected : MonoBehaviour
             SelectedSlots[3].SetActive(true);
             actionsOfPlayer.ItemID = 4;
         }
+       
     }
     public void DeselectAllSlots()
     {
