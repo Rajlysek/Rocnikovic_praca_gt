@@ -21,37 +21,46 @@ public class CameraView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Bounds mapbounds = waterTilemap.localBounds;
+        if(waterTilemap != null)
+        {
+            Bounds mapbounds = waterTilemap.localBounds;
 
-        var minMapX = mapbounds.min.x;
-        var maxMapX = mapbounds.max.x;
-        var minMapY = mapbounds.min.y;
-        var maxMapY = mapbounds.max.y;
+            var minMapX = mapbounds.min.x;
+            var maxMapX = mapbounds.max.x;
+            var minMapY = mapbounds.min.y;
+            var maxMapY = mapbounds.max.y;
 
-        float CameraAspect = Camera.main.aspect;
+            float CameraAspect = Camera.main.aspect;
 
-        var halfCameraSizeHeight = Camera.main.orthographicSize;
-        var halfCameraSizeWidth = CameraAspect * halfCameraSizeHeight;
+            var halfCameraSizeHeight = Camera.main.orthographicSize;
+            var halfCameraSizeWidth = CameraAspect * halfCameraSizeHeight;
 
-        float moveSpeed = playerControlScript.moveSpeed;
-        var playerPos = transform.position;
-        var cameraPos = Camera.main.transform.position;
-        cameraPos.z = -10;
-        var SafeMinX= minMapX + halfCameraSizeWidth;
-        var SafeMaxX = maxMapX - halfCameraSizeWidth;
-        var SafeMinY = minMapY + halfCameraSizeHeight;
-        var SafeMaxY= maxMapY - halfCameraSizeHeight;
+            float moveSpeed = playerControlScript.moveSpeed;
+            var playerPos = transform.position;
+            var cameraPos = Camera.main.transform.position;
+            cameraPos.z = -10;
+            var SafeMinX = minMapX + halfCameraSizeWidth;
+            var SafeMaxX = maxMapX - halfCameraSizeWidth;
+            var SafeMinY = minMapY + halfCameraSizeHeight;
+            var SafeMaxY = maxMapY - halfCameraSizeHeight;
 
-        var CameraPosX = Mathf.Clamp(playerPos.x, SafeMinX, SafeMaxX);
-        var CameraPosY = Mathf.Clamp(playerPos.y, SafeMinY, SafeMaxY);
-        Vector3 newCameraPos = new Vector3(CameraPosX, CameraPosY, -10);
-        Camera.main.transform.position = newCameraPos;
-   
- 
+            var CameraPosX = Mathf.Clamp(playerPos.x, SafeMinX, SafeMaxX);
+            var CameraPosY = Mathf.Clamp(playerPos.y, SafeMinY, SafeMaxY);
+            Vector3 newCameraPos = new Vector3(CameraPosX, CameraPosY, -10);
+            Camera.main.transform.position = newCameraPos;
+        }
+        else {
+            var playerPos = transform.position;
+            var cameraPos = Camera.main.transform.position;
+            cameraPos.z = -10;
+            Vector3 newCameraPos = new Vector3(playerPos.x, playerPos.y, -10);
+            Camera.main.transform.position = newCameraPos;
+        }
 
-       
-       
-        
+
+
+
+
     }
 
     //float getMoveSpeed()
