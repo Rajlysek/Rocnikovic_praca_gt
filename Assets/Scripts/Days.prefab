@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 8916062067023650849}
   - component: {fileID: 2658464776114960284}
   - component: {fileID: 7937580810867048700}
+  - component: {fileID: 6641915924948061131}
   m_Layer: 5
   m_Name: DayCount
   m_TagString: Untagged
@@ -382,6 +383,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6641915924948061131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324167805368032284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78064475a21fe3a45b3fdba196800a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiDaysChanged
+  daysManager: {fileID: 11400000, guid: 651f9f97fe0c56e459c8ece451e43ce9, type: 2}
+  UIDayNumber: {fileID: 0}
 --- !u!1 &6389749990577055513
 GameObject:
   m_ObjectHideFlags: 0

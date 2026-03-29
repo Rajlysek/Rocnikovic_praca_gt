@@ -1,15 +1,19 @@
 using UnityEngine;
-
+using NaughtyAttributes;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Objects/ItemSO")]
 public class ItemSO : ScriptableObject
 {
     public string itemName;
-    public StatToChange statToChange = new StatToChange();
+    public Sprite itemIcon;
+    public bool isSeedable;
+    public bool isEatable;
+    public bool isSellable;
 
-    public enum StatToChange
-    {
-        none,
-        health,
-        stamina
-    }
+    [ShowIf("isSeedable")]
+    public int timeToGrow;
+
+    [ShowIf("isSellable")]
+    public int price;
+
+    
 }

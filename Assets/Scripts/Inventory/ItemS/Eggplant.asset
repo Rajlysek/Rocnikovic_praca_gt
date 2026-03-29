@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28e73a7840df7045a78f709ea5c420d, type: 3}
+  m_Name: Eggplant
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  itemName: Eggplant
+  itemIcon: {fileID: -3122038730974599866, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
+  isSeedable: 1
+  isEatable: 1
+  isSellable: 1
+  timeToGrow: 5
+  price: 50

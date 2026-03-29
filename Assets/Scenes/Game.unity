@@ -80843,6 +80843,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2012542086732291774, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012542086732291774, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012542086732291774, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012542086732291774, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916062067023650849, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916062067023650849, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916062067023650849, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916062067023650849, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9109637742286112962, guid: 9d834b55b2fa0864a8916f9e1d6c0049, type: 3}
       propertyPath: m_Name
       value: Days

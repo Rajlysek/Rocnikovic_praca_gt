@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.U2D;
+
 using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
