@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Eggplant
   itemIcon: {fileID: -3122038730974599866, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
-  isSeedable: 1
+  isSeedable: 0
   isEatable: 1
   isSellable: 1
   timeToGrow: 5

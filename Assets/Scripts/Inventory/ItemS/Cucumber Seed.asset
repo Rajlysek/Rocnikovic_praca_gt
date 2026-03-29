@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c28e73a7840df7045a78f709ea5c420d, type: 3}
-  m_Name: Tomato
+  m_Name: Cucumber Seed
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Tomato
-  itemIcon: {fileID: 8641937697410740026, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
-  isSeedable: 0
-  isEatable: 1
-  isSellable: 1
-  timeToGrow: 6
-  price: 55
+  itemName: Cucumber Seed
+  itemIcon: {fileID: -1710936061, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
+  isSeedable: 1
+  isEatable: 0
+  isSellable: 0
+  timeToGrow: 7
+  price: 25

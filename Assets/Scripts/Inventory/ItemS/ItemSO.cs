@@ -8,6 +8,7 @@ public class ItemSO : ScriptableObject
     public bool isSeedable;
     public bool isEatable;
     public bool isSellable;
+    public string Description;
 
     [ShowIf("isSeedable")]
     public int timeToGrow;

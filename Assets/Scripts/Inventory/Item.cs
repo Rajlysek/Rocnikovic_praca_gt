@@ -2,23 +2,26 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private string ItemName;
+   
 
     [SerializeField]
     private int quantity;
 
     [SerializeField]
-    private Sprite sprite;
-    [TextArea]
-    [SerializeField]
-    private string itemDescription;
+    private ItemSO itemSO;
 
     private InventoryManager inventoryManager;
+    private SpriteRenderer spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = itemSO.itemIcon;
+    }
     void Start()
     {
         inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+        
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("colision");
-            int leftOverItems = inventoryManager.AddItem(ItemName, quantity, sprite, itemDescription);
+            int leftOverItems = inventoryManager.AddItem(itemSO.itemName, quantity, itemSO.itemIcon, itemSO.Description);
             if(leftOverItems <= 0)
             {
                 Destroy(gameObject);

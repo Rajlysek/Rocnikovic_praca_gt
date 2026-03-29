@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28e73a7840df7045a78f709ea5c420d, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: 
-  itemIcon: {fileID: 0}
-  isSeedable: 0
-  isEatable: 0
-  isSellable: 0
-  timeToGrow: 0
-  price: 0
+  itemName: Apple
+  itemIcon: {fileID: 8041714837616402709, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
+  isSeedable: 1
+  isEatable: 1
+  isSellable: 1
+  timeToGrow: 8
+  price: 100

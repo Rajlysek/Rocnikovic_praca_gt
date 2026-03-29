@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class ActionsOfPlayer : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class ActionsOfPlayer : MonoBehaviour
     
     private Rigidbody2D rb2;
     private bool isActing = false;
-    private Vector3Int FinalTilesPosition;
+    public Vector3Int FinalTilesPosition;
     public int ItemID;
+    public FarmManager farmManager;
+    public GameObject seedButton;
+    public Button button;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +27,12 @@ public class ActionsOfPlayer : MonoBehaviour
         _animator = GetComponent<Animator>();
         rb2 = gameObject.GetComponent<Rigidbody2D>();
         playerControlScript = GetComponent<PlayerControl>();
+
+        farmManager = GameObject.Find("FarmManager").GetComponent<FarmManager>();
+
+        button = seedButton.GetComponent<Button>();
+        button.onClick.AddListener(TaskOnClick);
+       
     }
 
     // Update is called once per frame
@@ -37,6 +47,22 @@ public class ActionsOfPlayer : MonoBehaviour
         {
             Action();
         }
+        Vector2 playerPosition = transform.position;
+        Vector2 LastDir = playerControlScript.lastDirection;
+
+        //sectu je at dostanu vedlejší tile
+        Vector3 TilePosition = playerPosition + LastDir;
+
+        //prevedu na Vector3Int protoze tilemapy prijimaji jen Vector3Int
+
+        FinalTilesPosition = HoeTilemap.WorldToCell(TilePosition);
+        //if (farmManager.buttonSearch(FinalTilesPosition))
+        //{
+        //    seedButton.SetActive(true);
+        //}
+        //else seedButton.SetActive(false);
+        //
+      
 
 
 
@@ -64,15 +90,13 @@ public class ActionsOfPlayer : MonoBehaviour
                 //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
                 if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
                 {
-                    if (HoeTilemap.HasTile(FinalTilesPosition))
+                    if (!HoeTilemap.HasTile(FinalTilesPosition))
                     {
-
-                    }
-                    else
-                    {
+                        farmManager.AddTileData(FinalTilesPosition);
                         HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
                         StartCoroutine(WaitForAnimation());
                     }
+                    
                 }
                 else
                 {
@@ -86,6 +110,7 @@ public class ActionsOfPlayer : MonoBehaviour
                 _animator.SetTrigger("SpaceWasPressed");
                 if (HoeTilemap.HasTile(FinalTilesPosition))
                 {
+                    farmManager.WettingTheTile(FinalTilesPosition);
                     StartCoroutine(WaitForAnimation());
                     
                 }
@@ -115,6 +140,10 @@ public class ActionsOfPlayer : MonoBehaviour
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
         }
         isActing = false;
+
+    }
+    void TaskOnClick()
+    {
 
     }
 }
