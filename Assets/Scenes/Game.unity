@@ -18731,7 +18731,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870374801}
-  - component: {fileID: 870374802}
   m_Layer: 0
   m_Name: SelectedSlots
   m_TagString: Untagged
@@ -18758,24 +18757,6 @@ Transform:
   - {fileID: 1261530167}
   m_Father: {fileID: 1278424977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &870374802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870374800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 296098666549cd84ea5b95a21e22b68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BarInventorySelected
-  SelectedSlots:
-  - {fileID: 105724156}
-  - {fileID: 585247135}
-  - {fileID: 1763062538}
-  - {fileID: 1261530166}
-  actionsOfPlayer: {fileID: 0}
 --- !u!1 &885341401
 GameObject:
   m_ObjectHideFlags: 0
@@ -33420,7 +33401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183507248}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34144,8 +34125,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 870374801}
   - {fileID: 1183507249}
+  - {fileID: 870374801}
   m_Father: {fileID: 2027137128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1278424978
@@ -34182,6 +34163,7 @@ MonoBehaviour:
   - {fileID: 289095823}
   - {fileID: 1851366281}
   - {fileID: 1706889590}
+  actionsOfPlayer: {fileID: 1316306070}
 --- !u!1 &1286384019
 GameObject:
   m_ObjectHideFlags: 0
