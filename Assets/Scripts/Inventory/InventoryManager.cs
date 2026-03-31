@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     public GameObject Seeding;
+    public InventoryHoldingInfo inventoryHoldingInfo;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
@@ -28,6 +29,7 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
         }
     }
+    
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription) 
     {
        
@@ -36,7 +38,7 @@ public class InventoryManager : MonoBehaviour
             if (!itemSlot[i].isFull && itemSlot[i].ItemName == itemName || itemSlot[i].quantity == 0) 
             { 
                 int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                Debug.Log(leftOverItems);
+                
                 if (leftOverItems > 0)
                 {
                     leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
@@ -46,6 +48,7 @@ public class InventoryManager : MonoBehaviour
                 
             }
         }
+        Debug.Log(quantity);
         return quantity;
 
     } 

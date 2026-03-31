@@ -29,9 +29,6 @@ public class FarmManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-       
-
-
     }
       
     
@@ -70,24 +67,17 @@ public class FarmManager : MonoBehaviour
     //method for redrawing a map after exiting and the again appearing in the scene
     public void RedrawTilemap(Tilemap newTilemap)
     {
-
         this.HoeTilemap = newTilemap;
-        Debug.Log("Pøekresluji farmu. Poèet políèek ve slovníku: " + farmedTiles.Count);
-
         foreach (var item in farmedTiles)
         {
-
             Vector3Int pos = item.Key;
-
             if (item.Value.isWet)
             {
-                Debug.Log($"Kreslím políèko na {item.Key}. Je mokré? {item.Value.isWet}");
                 newTilemap.SetTile(pos, hoedDirtTileWetAlone);
             }
             else
             {
-                Debug.Log($"Kreslím políèko na {item.Key}. Je mokré? {item.Value.isWet}");
-                newTilemap.SetTile(pos, hoedDirtTileAlone);
+               newTilemap.SetTile(pos, hoedDirtTileAlone);
             }
         }
     }
