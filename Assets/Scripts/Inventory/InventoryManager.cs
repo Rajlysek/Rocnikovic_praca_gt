@@ -5,6 +5,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryMenu;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
+    public GameObject Seeding;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
@@ -15,12 +16,15 @@ public class InventoryManager : MonoBehaviour
         {
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
+            Seeding.SetActive(true);
             menuActivated = false; 
         }
         else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
+            Seeding.SetActive(false);
+
             menuActivated = true;
         }
     }

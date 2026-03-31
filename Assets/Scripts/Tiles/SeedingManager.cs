@@ -10,7 +10,7 @@ public class SeedingManager : MonoBehaviour
     public GameObject inventoryScroll;
     public Button button;
     public Vector3Int FrontTilePosition;
-    int buttonClicked = 0;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,25 +30,28 @@ public class SeedingManager : MonoBehaviour
     {
        
         Vector3Int FrontTilePosition = actionsOfPlayer.FinalTilesPosition;
-       
+
         if (farmManager.buttonSearch(FrontTilePosition))
         {
             seedButton.SetActive(true);
         }
-        else seedButton.SetActive(false);
-
+        else
+        {
+            seedButton.SetActive(false);
+            inventoryScroll.SetActive(false);
+        }
     }
     void TaskOnClick()
     {
        
-        if (buttonClicked ==0)
+        if (!inventoryScroll.activeSelf)
         {
-            buttonClicked += 1;
+            
             inventoryScroll.SetActive(true);
         }
-        else if (buttonClicked == 1)
+        else 
         {
-            buttonClicked = 0;
+            
             inventoryScroll.SetActive(false);
         }
     }
