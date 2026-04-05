@@ -10,6 +10,7 @@ public class SeedingManager : MonoBehaviour
     public GameObject inventoryScroll;
     public Button button;
     public Vector3Int FrontTilePosition;
+    public SeedingScrollView seedingScrollView;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,11 +49,17 @@ public class SeedingManager : MonoBehaviour
         {
             
             inventoryScroll.SetActive(true);
+            seedingScrollView.GetSeedableItems();
         }
         else 
         {
             
             inventoryScroll.SetActive(false);
         }
+    }
+    public void SeedOnTile(ItemSO seedToSeed)
+    {
+        Vector3Int FrontTilePosition = actionsOfPlayer.FinalTilesPosition;
+        farmManager.SeedingOnTile(seedToSeed, FrontTilePosition);
     }
 }

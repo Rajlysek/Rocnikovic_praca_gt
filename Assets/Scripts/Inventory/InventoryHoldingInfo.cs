@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InventoryHoldingInfo : MonoBehaviour
 {
@@ -15,6 +17,14 @@ public class InventoryHoldingInfo : MonoBehaviour
     }
     private void Awake()
     {
+        for (int i = 0; i < quantityOfItemsInSlots.Count; i++)
+        {
+            if (quantityOfItemsInSlots[i] == 0)
+            {
+
+                inventoryInfo[i] = null;
+            }
+        }
         if (instance != null)
         {
             
@@ -49,11 +59,13 @@ public class InventoryHoldingInfo : MonoBehaviour
                 }
                 else
                 {
-
+                    inventoryInfo[position] = itemSOs[i];
+                    quantityOfItemsInSlots[position] = quantity;
                 }
 
                     return;
             }
         }
     }
+   
 }

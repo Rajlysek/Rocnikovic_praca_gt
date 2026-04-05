@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class FarmManager : MonoBehaviour
 {
-   
+
     static public Dictionary<Vector3Int, TileData> farmedTiles = new Dictionary<Vector3Int, TileData>();
     public static FarmManager instance;
     [SerializeField] private Tilemap HoeTilemap;
@@ -15,11 +15,11 @@ public class FarmManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             RedrawTilemap(HoeTilemap);
             Destroy(gameObject);
@@ -30,12 +30,12 @@ public class FarmManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-      
-    
+
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void AddTileData(Vector3Int tilePosition)
     {
@@ -46,7 +46,7 @@ public class FarmManager : MonoBehaviour
             farmedTiles[tilePosition].positionOfTile = tilePosition;
             newTile.isWet = false;
         }
-       
+
     }
     public void WettingTheTile(Vector3Int tilePosition)
     {
@@ -54,7 +54,7 @@ public class FarmManager : MonoBehaviour
         {
             farmedTiles[tilePosition].isWet = true;
         }
-            
+
     }
     public bool buttonSearch(Vector3Int tilePosition)
     {
@@ -77,9 +77,14 @@ public class FarmManager : MonoBehaviour
             }
             else
             {
-               newTilemap.SetTile(pos, hoedDirtTileAlone);
+                newTilemap.SetTile(pos, hoedDirtTileAlone);
             }
         }
     }
-    
+    public void SeedingOnTile(ItemSO seedToSeed, Vector3Int positionOfTile)
+    {
+        farmedTiles[positionOfTile].plantedSeed = seedToSeed;
+
+        farmedTiles[positionOfTile].hasSeed = true;
+    }
 }
