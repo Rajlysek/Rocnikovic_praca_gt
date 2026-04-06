@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -12,7 +13,9 @@ public class ActionsOfPlayer : MonoBehaviour
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
     [SerializeField] private TileBase hoedDirtTileWetAlone;
-    
+    [SerializeField] private TileBase hoedDirtTileAloneSeed;
+    [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
+
     private Rigidbody2D rb2;
     private bool isActing = false;
     public Vector3Int FinalTilesPosition;
@@ -131,15 +134,31 @@ public class ActionsOfPlayer : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         if (ItemID == 1) 
-        { 
+        {
+            
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAlone);
         }
         else if (ItemID == 2)
         {
-            HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
+            if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) &&  FarmManager.farmedTiles[FinalTilesPosition].hasSeed) 
+            {
+                HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+            }
+            else HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
         }
         isActing = false;
 
+    }
+    public void Seeding()
+    {
+        if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) && !FarmManager.farmedTiles[FinalTilesPosition].isWet)
+        {
+            HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAloneSeed);
+        }
+        else if(FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) && FarmManager.farmedTiles[FinalTilesPosition].isWet)
+        {
+            HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+        }
     }
     void TaskOnClick()
     {

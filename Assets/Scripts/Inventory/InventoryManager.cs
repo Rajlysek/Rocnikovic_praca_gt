@@ -77,12 +77,23 @@ public class InventoryManager : MonoBehaviour
     
     private void LoadInventory()
     {
+        for(int i = 0; i < itemSlot.Length; i++)
+        {
+            itemSlot[i].EmptySlot();
+        }
         foreach (var item in InventoryHoldingInfo.inventoryInfo)
         {
             int slotIndex = item.Key;
             ItemSO savedItem = item.Value;
             int savedQuantity = InventoryHoldingInfo.quantityOfItemsInSlots[slotIndex];
-            itemSlot[slotIndex].AddItem(savedItem.itemName, savedQuantity, savedItem.itemIcon, savedItem.Description);
+            if(savedItem != null)
+            {
+                itemSlot[slotIndex].AddItem(savedItem.itemName, savedQuantity, savedItem.itemIcon, savedItem.Description);
+            }
+            else
+            {
+                itemSlot[slotIndex].EmptySlot();
+            }
         }
     }
     public void UpdateInventory(int position) 

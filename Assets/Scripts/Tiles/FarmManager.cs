@@ -10,6 +10,8 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
     [SerializeField] private TileBase hoedDirtTileWetAlone;
+    [SerializeField] private TileBase hoedDirtTileAloneSeed;
+    [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
     //event
     [SerializeField] private DaysManagerSO daysManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,11 +75,21 @@ public class FarmManager : MonoBehaviour
             Vector3Int pos = item.Key;
             if (item.Value.isWet)
             {
-                newTilemap.SetTile(pos, hoedDirtTileWetAlone);
+                if (item.Value.hasSeed)
+                {
+                    newTilemap.SetTile(pos, hoedDirtTileWetAloneSeed);
+                }
+                else
+                    newTilemap.SetTile(pos, hoedDirtTileWetAlone);
             }
             else
             {
-                newTilemap.SetTile(pos, hoedDirtTileAlone);
+                if (item.Value.hasSeed)
+                {
+                    newTilemap.SetTile(pos, hoedDirtTileAloneSeed);
+                }
+                else 
+                    newTilemap.SetTile(pos, hoedDirtTileAlone);
             }
         }
     }

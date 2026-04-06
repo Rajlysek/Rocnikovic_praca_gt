@@ -61,5 +61,6 @@ public class SeedingManager : MonoBehaviour
     {
         Vector3Int FrontTilePosition = actionsOfPlayer.FinalTilesPosition;
         farmManager.SeedingOnTile(seedToSeed, FrontTilePosition);
+        actionsOfPlayer.Seeding();
     }
 }
