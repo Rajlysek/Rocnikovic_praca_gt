@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TileData
 {
@@ -9,5 +10,6 @@ public class TileData
     public int daysPlanted;
     public Vector3Int positionOfTile;
     public int notWetFor = 0;
+    public TileBase currentTileBase;
     
 }

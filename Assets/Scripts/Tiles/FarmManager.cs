@@ -51,6 +51,10 @@ public class FarmManager : MonoBehaviour
         }
 
     }
+    public void AddTileSprite(Vector3Int tilePosition,TileBase newTileSprite)
+    {
+        farmedTiles[tilePosition].currentTileBase = newTileSprite;
+    }
     public void WettingTheTile(Vector3Int tilePosition)
     {
         if (farmedTiles.ContainsKey(tilePosition))
@@ -78,19 +82,19 @@ public class FarmManager : MonoBehaviour
             {
                 if (item.Value.hasSeed)
                 {
-                    newTilemap.SetTile(pos, hoedDirtTileWetAloneSeed);
+                    newTilemap.SetTile(pos, item.Value.currentTileBase);
                 }
                 else
-                    newTilemap.SetTile(pos, hoedDirtTileWetAlone);
+                    newTilemap.SetTile(pos, item.Value.currentTileBase);
             }
             else
             {
                 if (item.Value.hasSeed)
                 {
-                    newTilemap.SetTile(pos, hoedDirtTileAloneSeed);
+                    newTilemap.SetTile(pos, item.Value.currentTileBase);
                 }
                 else 
-                    newTilemap.SetTile(pos, hoedDirtTileAlone);
+                    newTilemap.SetTile(pos, item.Value.currentTileBase);
             }
         }
     }
@@ -102,25 +106,30 @@ public class FarmManager : MonoBehaviour
     }
     private void OnEnable()
     {
+       
         daysManager.OnDayChange += GrowingSeeds;
     }
     private void OnDisable()
     {
-        daysManager.OnDayChange += GrowingSeeds;
+        daysManager.OnDayChange -= GrowingSeeds;
     }
     private void GrowingSeeds()
     {
-        foreach (var item in farmedTiles)
-        {
-            Vector3Int pos = item.Key;
-            if (item.Value.hasSeed)
+        
+            foreach (var item in farmedTiles)
             {
-                item.Value.daysPlanted++;
-                if (item.Value.daysPlanted == 1)
+                Vector3Int pos = item.Key;
+                if (item.Value.hasSeed)
                 {
-                    HoeTilemap.SetTile(pos, item.Value.plantedSeed.firstPhase);
+                    item.Value.daysPlanted++;
+                    if (item.Value.daysPlanted == 1)
+                    {
+                        item.Value.currentTileBase = item.Value.plantedSeed.firstPhase;
+                      
+                    }
                 }
             }
-        }
+
+        
     }
 }

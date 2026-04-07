@@ -139,14 +139,21 @@ public class ActionsOfPlayer : MonoBehaviour
         {
             
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAlone);
+            farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileAlone);
         }
         else if (ItemID == 2)
         {
             if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) &&  FarmManager.farmedTiles[FinalTilesPosition].hasSeed) 
             {
                 HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+                farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAloneSeed);
             }
-            else HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
+            else
+            {
+                HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
+                farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAlone);
+
+            }
         }
         isActing = false;
 
@@ -156,10 +163,13 @@ public class ActionsOfPlayer : MonoBehaviour
         if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) && !FarmManager.farmedTiles[FinalTilesPosition].isWet)
         {
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAloneSeed);
+            farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileAloneSeed);
+
         }
         else if(FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) && FarmManager.farmedTiles[FinalTilesPosition].isWet)
         {
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+            farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAloneSeed);
         }
     }
     void TaskOnClick()
