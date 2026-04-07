@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Apple
   itemIcon: {fileID: 8041714837616402709, guid: c05912a03f732564c9acb4e43a39d7e6, type: 3}
-  isSeedable: 1
+  isSeedable: 0
   isEatable: 1
   isSellable: 1
+  isCorn: 0
+  Description: 
+  currentPhase: 0
+  firstPhase: {fileID: 0}
+  secondPhase: {fileID: 0}
+  thirdPhase: {fileID: 0}
+  fourthPhase: {fileID: 0}
   timeToGrow: 8
+  fifthPhase: {fileID: 0}
+  fourthPhasev2: {fileID: 0}
+  fifthPhasev2: {fileID: 0}
   price: 100

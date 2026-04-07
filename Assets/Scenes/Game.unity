@@ -981,7 +981,7 @@ Transform:
   m_GameObject: {fileID: 120933567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.87, z: 0}
+  m_LocalPosition: {x: 0.03, y: 0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27769,7 +27769,7 @@ MonoBehaviour:
   hoedDirtTileWetAlone: {fileID: 11400000, guid: d11366f9659255b4092058cb24d11933, type: 2}
   hoedDirtTileAloneSeed: {fileID: 11400000, guid: 2aa18285c125abb4bb99880ffa5cbe94, type: 2}
   hoedDirtTileWetAloneSeed: {fileID: 11400000, guid: 354da51891e763945931044e894ff964, type: 2}
-  daysManager: {fileID: 0}
+  daysManager: {fileID: 11400000, guid: 651f9f97fe0c56e459c8ece451e43ce9, type: 2}
 --- !u!224 &1210301854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28445,6 +28445,8 @@ MonoBehaviour:
   hoedDirtTileWetAlone: {fileID: 11400000, guid: d11366f9659255b4092058cb24d11933, type: 2}
   hoedDirtTileAloneSeed: {fileID: 11400000, guid: 2aa18285c125abb4bb99880ffa5cbe94, type: 2}
   hoedDirtTileWetAloneSeed: {fileID: 11400000, guid: 354da51891e763945931044e894ff964, type: 2}
+  plants: {fileID: 0}
+  plantsTilemap: {fileID: 0}
   FinalTilesPosition: {x: 0, y: 0, z: 0}
   ItemID: 0
   farmManager: {fileID: 0}

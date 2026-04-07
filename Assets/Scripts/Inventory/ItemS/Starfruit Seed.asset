@@ -17,6 +17,14 @@ MonoBehaviour:
   isSeedable: 1
   isEatable: 0
   isSellable: 0
+  isCorn: 0
   Description: 
+  firstPhase: {fileID: 11400000, guid: 396e6d1a1bcf7274f82a88d1de5c4f92, type: 2}
+  secondPhase: {fileID: 11400000, guid: f7be7de911666d54490020faf60f5629, type: 2}
+  thirdPhase: {fileID: 11400000, guid: b176bbc44c9baef44b574e85a15aeb94, type: 2}
+  fourthPhase: {fileID: 11400000, guid: bf9db63a3596caf4d9361cd0c719fb58, type: 2}
   timeToGrow: 12
+  fifthPhase: {fileID: 0}
+  fourthPhasev2: {fileID: 0}
+  fifthPhasev2: {fileID: 0}
   price: 150

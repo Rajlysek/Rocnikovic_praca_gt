@@ -12,8 +12,9 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private TileBase hoedDirtTileWetAlone;
     [SerializeField] private TileBase hoedDirtTileAloneSeed;
     [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
+    public DaysManagerSO daysManager;
     //event
-    [SerializeField] private DaysManagerSO daysManager;
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -98,5 +99,28 @@ public class FarmManager : MonoBehaviour
         farmedTiles[positionOfTile].plantedSeed = seedToSeed;
 
         farmedTiles[positionOfTile].hasSeed = true;
+    }
+    private void OnEnable()
+    {
+        daysManager.OnDayChange += GrowingSeeds;
+    }
+    private void OnDisable()
+    {
+        daysManager.OnDayChange += GrowingSeeds;
+    }
+    private void GrowingSeeds()
+    {
+        foreach (var item in farmedTiles)
+        {
+            Vector3Int pos = item.Key;
+            if (item.Value.hasSeed)
+            {
+                item.Value.daysPlanted++;
+                if (item.Value.daysPlanted == 1)
+                {
+                    HoeTilemap.SetTile(pos, item.Value.plantedSeed.firstPhase);
+                }
+            }
+        }
     }
 }

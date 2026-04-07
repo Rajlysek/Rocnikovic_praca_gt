@@ -1,5 +1,6 @@
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Objects/ItemSO")]
 public class ItemSO : ScriptableObject
 {
@@ -8,13 +9,43 @@ public class ItemSO : ScriptableObject
     public bool isSeedable;
     public bool isEatable;
     public bool isSellable;
+    public bool isCorn;
     public string Description;
+    
+    public CurrentPhase currentPhase;
+
+    
+    [ShowIf("isSeedable")]
+    public TileBase firstPhase;
+    [ShowIf("isSeedable")]
+    public TileBase secondPhase;
+    [ShowIf("isSeedable")]
+    public TileBase thirdPhase;
+    [ShowIf("isSeedable")]
+    public TileBase fourthPhase;
+    
 
     [ShowIf("isSeedable")]
     public int timeToGrow;
+
+    [ShowIf("isCorn")]
+    public TileBase fifthPhase;
+     [ShowIf("isCorn")]
+    public TileBase fourthPhasev2;
+    [ShowIf("isCorn")]
+    public TileBase fifthPhasev2;
 
     [ShowIf("isSellable")]
     public int price;
 
     
+}
+public enum CurrentPhase
+{
+    firstPhase,
+    secondPhase,
+    thirdPhase,
+    fourthPhase,
+    fifthPhase,
+    nonePhase
 }

@@ -12,7 +12,8 @@ public class SeedingManager : MonoBehaviour
     public Vector3Int FrontTilePosition;
     public SeedingScrollView seedingScrollView;
     
-    
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,4 +64,17 @@ public class SeedingManager : MonoBehaviour
         farmManager.SeedingOnTile(seedToSeed, FrontTilePosition);
         actionsOfPlayer.Seeding();
     }
+    //private void OnEnable()
+    //{
+    //    DaysManagerSO.OnDayChange += GrowingSeeds;
+    //}
+    //private void OnDisable()
+    //{
+    //    DaysManagerSO.OnDayChange += GrowingSeeds;
+    //}
+    //private void GrowingSeeds()
+    //{
+    //    farmManager.GrowingSeeds();
+    //}
+
 }

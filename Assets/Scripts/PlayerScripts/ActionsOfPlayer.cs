@@ -15,6 +15,8 @@ public class ActionsOfPlayer : MonoBehaviour
     [SerializeField] private TileBase hoedDirtTileWetAlone;
     [SerializeField] private TileBase hoedDirtTileAloneSeed;
     [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
+    [SerializeField] private TileBase plants;
+    [SerializeField] private Tilemap plantsTilemap;
 
     private Rigidbody2D rb2;
     private bool isActing = false;

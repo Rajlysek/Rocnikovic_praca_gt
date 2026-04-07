@@ -17,5 +17,15 @@ MonoBehaviour:
   isSeedable: 0
   isEatable: 1
   isSellable: 1
+  isCorn: 0
+  Description: 
+  currentPhase: 0
+  firstPhase: {fileID: 0}
+  secondPhase: {fileID: 0}
+  thirdPhase: {fileID: 0}
+  fourthPhase: {fileID: 0}
   timeToGrow: 0
+  fifthPhase: {fileID: 0}
+  fourthPhasev2: {fileID: 0}
+  fifthPhasev2: {fileID: 0}
   price: 25
