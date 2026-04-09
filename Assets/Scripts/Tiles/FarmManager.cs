@@ -13,6 +13,7 @@ public class FarmManager : MonoBehaviour
     [SerializeField] private TileBase hoedDirtTileAloneSeed;
     [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
     public DaysManagerSO daysManager;
+    List<Vector3Int> tilesToRemove = new List<Vector3Int>();
     //event
   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,31 +79,20 @@ public class FarmManager : MonoBehaviour
         foreach (var item in farmedTiles)
         {
             Vector3Int pos = item.Key;
-            if (item.Value.isWet)
-            {
-                if (item.Value.hasSeed)
-                {
-                    newTilemap.SetTile(pos, item.Value.currentTileBase);
-                }
-                else
-                    newTilemap.SetTile(pos, item.Value.currentTileBase);
-            }
-            else
-            {
-                if (item.Value.hasSeed)
-                {
-                    newTilemap.SetTile(pos, item.Value.currentTileBase);
-                }
-                else 
-                    newTilemap.SetTile(pos, item.Value.currentTileBase);
-            }
+            newTilemap.SetTile(pos, item.Value.currentTileBase);
         }
     }
     public void SeedingOnTile(ItemSO seedToSeed, Vector3Int positionOfTile)
     {
-        farmedTiles[positionOfTile].plantedSeed = seedToSeed;
+    
+        var currentTile = farmedTiles[positionOfTile];
+        currentTile.plantedSeed = seedToSeed;
 
-        farmedTiles[positionOfTile].hasSeed = true;
+        currentTile.hasSeed = true;
+
+        currentTile.seedCurrentPhase = CurrentPhase.seed;
+
+       
     }
     private void OnEnable()
     {
@@ -116,20 +106,57 @@ public class FarmManager : MonoBehaviour
     private void GrowingSeeds()
     {
         
-            foreach (var item in farmedTiles)
+        foreach (var item in farmedTiles)
+        {
+            Vector3Int pos = item.Key;
+            if(item.Value.notWetFor == 2 && item.Value.hasSeed)
             {
-                Vector3Int pos = item.Key;
-                if (item.Value.hasSeed)
-                {
-                    item.Value.daysPlanted++;
-                    if (item.Value.daysPlanted == 1)
-                    {
-                        item.Value.currentTileBase = item.Value.plantedSeed.firstPhase;
-                      
-                    }
-                }
+                tilesToRemove.Add(pos);
+                continue;
+            }
+            else if (item.Value.notWetFor == 1 && item.Value.hasSeed == false)
+            {
+                tilesToRemove.Add(pos);
+                continue;
+            }
+            else if (item.Value.isWet == false)
+            {
+                item.Value.notWetFor++;
+                continue;
             }
 
+            if (item.Value.hasSeed)
+            {
+                item.Value.daysPlanted++;
+                if(item.Value.seedCurrentPhase < CurrentPhase.thirdPhase)
+                { 
+                    item.Value.seedCurrentPhase++;
+                    int currentIndex = (int)item.Value.seedCurrentPhase;
+                    item.Value.currentTileBase = item.Value.plantedSeed.Phase[currentIndex-1];
+
+                }
+                else if (item.Value.daysPlanted == item.Value.plantedSeed.timeToGrow)
+                {
+                    item.Value.seedCurrentPhase = CurrentPhase.fourthPhase;
+                    item.Value.currentTileBase = item.Value.plantedSeed.fourthPhase;
+                  
+                }
+                else if(item.Value.seedCurrentPhase == CurrentPhase.fourthPhase)
+                {
+                    item.Value.currentTileBase = item.Value.plantedSeed.fourthPhase;
+                }
+               
+            }
+            else
+            {
+                item.Value.currentTileBase = hoedDirtTileAlone;
+            }
+                item.Value.isWet = false;
+        }
+        foreach(var posToRemove in tilesToRemove)
+        {
+            farmedTiles.Remove(posToRemove);
+        }
         
     }
 }

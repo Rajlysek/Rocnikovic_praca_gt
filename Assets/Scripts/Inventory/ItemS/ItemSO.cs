@@ -11,7 +11,7 @@ public class ItemSO : ScriptableObject
     public bool isSellable;
     public bool isCorn;
     public string Description;
-    
+    public BoxCollider2D plantsCollider;
     public CurrentPhase currentPhase;
 
     
@@ -23,12 +23,21 @@ public class ItemSO : ScriptableObject
     public TileBase thirdPhase;
     [ShowIf("isSeedable")]
     public TileBase fourthPhase;
-    
+
+    [ShowIf("isSeedable")]
+    public TileBase firstPhaseWet;
+    [ShowIf("isSeedable")]
+    public TileBase secondPhaseWet;
+    [ShowIf("isSeedable")]
+    public TileBase thirdPhaseWet;
+    [ShowIf("isSeedable")]
+    public TileBase fourthPhaseWet;
+
 
     [ShowIf("isSeedable")]
     public int timeToGrow;
 
-    [ShowIf("isCorn")]
+    [ShowIf("isCorn")]  
     public TileBase fifthPhase;
      [ShowIf("isCorn")]
     public TileBase fourthPhasev2;
@@ -38,10 +47,13 @@ public class ItemSO : ScriptableObject
     [ShowIf("isSellable")]
     public int price;
 
+    public TileBase[] Phase;
+    public TileBase[] WetPhase;
     
 }
 public enum CurrentPhase
 {
+    seed,
     firstPhase,
     secondPhase,
     thirdPhase,

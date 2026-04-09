@@ -133,7 +133,7 @@ public class ActionsOfPlayer : MonoBehaviour
     IEnumerator WaitForAnimation()
     {
         isActing = true;
-        
+       
         yield return new WaitForSeconds(0.5f);
         if (ItemID == 1) 
         {
@@ -145,13 +145,34 @@ public class ActionsOfPlayer : MonoBehaviour
         {
             if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) &&  FarmManager.farmedTiles[FinalTilesPosition].hasSeed) 
             {
-                HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
-                farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+                
+                var currentPhase = FarmManager.farmedTiles[FinalTilesPosition].seedCurrentPhase;
+               
+                if (currentPhase > CurrentPhase.seed)
+                {
+                    int currentPhaseIndex = (int)FarmManager.farmedTiles[FinalTilesPosition].seedCurrentPhase;
+                    // minus one because index of seed is 0, but in the array the zero isnt for seed but firstPhase;
+                    var tileDataSprite = FarmManager.farmedTiles[FinalTilesPosition].plantedSeed.WetPhase[currentPhaseIndex-1];
+                    HoeTilemap.SetTile(FinalTilesPosition, tileDataSprite);
+                    farmManager.AddTileSprite(FinalTilesPosition, tileDataSprite);
+                    FarmManager.farmedTiles[FinalTilesPosition].isWet = true;
+                    FarmManager.farmedTiles[FinalTilesPosition].notWetFor = 0;
+                }
+               
+                else
+                {
+                    HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+                    farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAloneSeed);
+                    FarmManager.farmedTiles[FinalTilesPosition].isWet = true;
+                    FarmManager.farmedTiles[FinalTilesPosition].notWetFor = 0;
+                }
             }
             else
             {
                 HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileWetAlone);
                 farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileWetAlone);
+                FarmManager.farmedTiles[FinalTilesPosition].isWet = true;
+                FarmManager.farmedTiles[FinalTilesPosition].notWetFor = 0;
 
             }
         }

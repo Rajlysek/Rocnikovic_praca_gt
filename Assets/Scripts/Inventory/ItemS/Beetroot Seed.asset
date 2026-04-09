@@ -19,12 +19,28 @@ MonoBehaviour:
   isSellable: 0
   isCorn: 0
   Description: 
+  plantsCollider: {fileID: 0}
+  currentPhase: 0
   firstPhase: {fileID: 11400000, guid: faa2e784c7bd8984abc5bf6e86d24db5, type: 2}
   secondPhase: {fileID: 11400000, guid: 97c10691f28b36c4fa7f8f273595f64b, type: 2}
   thirdPhase: {fileID: 11400000, guid: 3702897386873b14095e59434dc4d255, type: 2}
   fourthPhase: {fileID: 11400000, guid: 48dc013758e361e47957a2123f8972bf, type: 2}
+  firstPhaseWet: {fileID: 11400000, guid: 7fd98e14f5708f34cb0185d8954325cb, type: 2}
+  secondPhaseWet: {fileID: 11400000, guid: a41989b12338e28428643c17391cc20f, type: 2}
+  thirdPhaseWet: {fileID: 11400000, guid: a0058b8e344def3459831beb386f043c, type: 2}
+  fourthPhaseWet: {fileID: 11400000, guid: 0b746109b3c66684cb191ffa3bfdf458, type: 2}
   timeToGrow: 4
   fifthPhase: {fileID: 0}
   fourthPhasev2: {fileID: 0}
   fifthPhasev2: {fileID: 0}
   price: 30
+  Phase:
+  - {fileID: 11400000, guid: 932fd8833f0937b419605413363a3430, type: 2}
+  - {fileID: 11400000, guid: e397bc04390e0d24dbedde9308a2613b, type: 2}
+  - {fileID: 11400000, guid: a837b4dac90bfb144b30c4566d8c7f41, type: 2}
+  - {fileID: 11400000, guid: a7dc9f6a38d4e2740ab242d0dabb34ef, type: 2}
+  WetPhase:
+  - {fileID: 11400000, guid: 7fd98e14f5708f34cb0185d8954325cb, type: 2}
+  - {fileID: 11400000, guid: a41989b12338e28428643c17391cc20f, type: 2}
+  - {fileID: 11400000, guid: a0058b8e344def3459831beb386f043c, type: 2}
+  - {fileID: 11400000, guid: 0b746109b3c66684cb191ffa3bfdf458, type: 2}
