@@ -9,6 +9,7 @@ public class ActionsOfPlayer : MonoBehaviour
 {
     PlayerControl playerControlScript;
     private Animator _animator;
+    public StaminaManager staminaManager;
     [SerializeField] private Tilemap GrassTilemap;
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
@@ -25,6 +26,9 @@ public class ActionsOfPlayer : MonoBehaviour
     public FarmManager farmManager;
     public GameObject seedButton;
     public Button button;
+
+    public PlayerStatsSO playerStats;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -88,39 +92,53 @@ public class ActionsOfPlayer : MonoBehaviour
             {
 
                 case 1:
-                    _animator.SetTrigger("SpaceWasPressed");
 
-                    //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
-                    if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
+                    if (playerStats.stamina != 0)
                     {
-                        if (!HoeTilemap.HasTile(FinalTilesPosition))
+                        //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
+                        
+                        
+                        if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
                         {
-                            farmManager.AddTileData(FinalTilesPosition);
-                            HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
-                            StartCoroutine(WaitForAnimation());
+                            _animator.SetTrigger("SpaceWasPressed");
+                            if (!HoeTilemap.HasTile(FinalTilesPosition))
+                            {
+                                farmManager.AddTileData(FinalTilesPosition);
+                                HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
+                                StartCoroutine(WaitForAnimation());
+                            }
+
+                        }
+                        else
+                        {
+                            
+                            Debug.Log("Noting");
+                            
                         }
 
                     }
-                    else
-                    {
-                        Debug.Log("Noting");
-                    }
+                    else Debug.Log("nostamina");
 
-                    break;
+                        break;
                 case 2:
-
-
-                    _animator.SetTrigger("SpaceWasPressed");
-                    if (HoeTilemap.HasTile(FinalTilesPosition))
+                    if (playerStats.stamina != 0)
                     {
-                        farmManager.WettingTheTile(FinalTilesPosition);
-                        StartCoroutine(WaitForAnimation());
+                        
+                        _animator.SetTrigger("SpaceWasPressed");
+                        if (HoeTilemap.HasTile(FinalTilesPosition))
+                        {
+                            farmManager.WettingTheTile(FinalTilesPosition);
+                            StartCoroutine(WaitForAnimation());
+
+                        }
+                        else
+                        {
+                            staminaManager.StaminaUsed(5);
+                            Debug.Log("Noting There");
+                        }
 
                     }
-                    else
-                    {
-                        Debug.Log("Noting There");
-                    }
+                    else Debug.Log("No Stamina");
 
                     break;
                 case 3:
@@ -140,16 +158,20 @@ public class ActionsOfPlayer : MonoBehaviour
             
             HoeTilemap.SetTile(FinalTilesPosition, hoedDirtTileAlone);
             farmManager.AddTileSprite(FinalTilesPosition, hoedDirtTileAlone);
+            staminaManager.StaminaUsed(5);
+
         }
         else if (ItemID == 2)
         {
+            staminaManager.StaminaUsed(5);
             if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) &&  FarmManager.farmedTiles[FinalTilesPosition].hasSeed) 
             {
-                
+               
                 var currentPhase = FarmManager.farmedTiles[FinalTilesPosition].seedCurrentPhase;
                
                 if (currentPhase > CurrentPhase.seed)
                 {
+                    
                     int currentPhaseIndex = (int)FarmManager.farmedTiles[FinalTilesPosition].seedCurrentPhase;
                     // minus one because index of seed is 0, but in the array the zero isnt for seed but firstPhase;
                     var tileDataSprite = FarmManager.farmedTiles[FinalTilesPosition].plantedSeed.WetPhase[currentPhaseIndex-1];
