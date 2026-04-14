@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class StaminaManager : MonoBehaviour
 {
-    static bool firstStart = true;
+    public static bool firstStart = true;
     public PlayerStatsSO playerStats;
     public GameObject StaminaPanel;
     private RectTransform rectTransform;
@@ -39,7 +39,7 @@ public class StaminaManager : MonoBehaviour
         if(playerStats.stamina != 0)
         {
             playerStats.stamina -= usedStamina;
-            Debug.Log(playerStats.stamina);
+           //Debug.Log(playerStats.stamina);
             UpdateStaminaUi();
         }
     }
@@ -54,10 +54,10 @@ public class StaminaManager : MonoBehaviour
     }
     public void staminaReplenish()
     {
-        Debug.Log("1. Event vyspání spuštìn!");
+       
         playerStats.stamina = 100;
         UpdateStaminaUi();
-        Debug.Log("2. UI by mìlo být nastaveno na plno. Aktuální Top hodnota je: " + rectTransform.offsetMax.y);
+        
     }
     public void UpdateStaminaUi()
     {

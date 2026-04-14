@@ -128,22 +128,24 @@ public class FarmManager : MonoBehaviour
             if (item.Value.hasSeed)
             {
                 item.Value.daysPlanted++;
-                if(item.Value.seedCurrentPhase < CurrentPhase.thirdPhase)
+                if(item.Value.seedCurrentPhase < CurrentPhase.fourthPhase)
                 { 
                     item.Value.seedCurrentPhase++;
                     int currentIndex = (int)item.Value.seedCurrentPhase;
                     item.Value.currentTileBase = item.Value.plantedSeed.Phase[currentIndex-1];
 
                 }
-                else if (item.Value.daysPlanted == item.Value.plantedSeed.timeToGrow)
-                {
-                    item.Value.seedCurrentPhase = CurrentPhase.fourthPhase;
-                    item.Value.currentTileBase = item.Value.plantedSeed.fourthPhase;
-                  
-                }
+                //else if (item.Value.daysPlanted == item.Value.plantedSeed.timeToGrow)
+                //{
+                //    item.Value.seedCurrentPhase = CurrentPhase.fourthPhase;
+                //    item.Value.currentTileBase = item.Value.plantedSeed.fourthPhase;
+                //    Debug.Log("Fully Grown");
+                //}
                 else if(item.Value.seedCurrentPhase == CurrentPhase.fourthPhase)
                 {
                     item.Value.currentTileBase = item.Value.plantedSeed.fourthPhase;
+                    
+                    Debug.Log("IsGrown");
                 }
                
             }

@@ -10,6 +10,7 @@ public class ActionsOfPlayer : MonoBehaviour
     PlayerControl playerControlScript;
     private Animator _animator;
     public StaminaManager staminaManager;
+    public WaterManager waterManager;
     [SerializeField] private Tilemap GrassTilemap;
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
@@ -121,7 +122,7 @@ public class ActionsOfPlayer : MonoBehaviour
 
                         break;
                 case 2:
-                    if (playerStats.stamina != 0)
+                    if (playerStats.stamina != 0 && playerStats.water != 0)
                     {
                         
                         _animator.SetTrigger("SpaceWasPressed");
@@ -134,6 +135,7 @@ public class ActionsOfPlayer : MonoBehaviour
                         else
                         {
                             staminaManager.StaminaUsed(5);
+                            waterManager.WaterUsed(10);
                             Debug.Log("Noting There");
                         }
 
@@ -163,6 +165,7 @@ public class ActionsOfPlayer : MonoBehaviour
         }
         else if (ItemID == 2)
         {
+            waterManager.WaterUsed(10);
             staminaManager.StaminaUsed(5);
             if (FarmManager.farmedTiles.ContainsKey(FinalTilesPosition) &&  FarmManager.farmedTiles[FinalTilesPosition].hasSeed) 
             {
