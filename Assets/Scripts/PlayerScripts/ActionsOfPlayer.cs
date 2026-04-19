@@ -27,7 +27,7 @@ public class ActionsOfPlayer : MonoBehaviour
     public FarmManager farmManager;
     public GameObject seedButton;
     public Button button;
-
+    public Vector2 playerPosition;
     public PlayerStatsSO playerStats;
     
 
@@ -78,7 +78,7 @@ public class ActionsOfPlayer : MonoBehaviour
         if (HoeTilemap != null)
         {
             //vezmu souradnice hrace a ze skriptu playerControl posledni direction hrace
-            Vector2 playerPosition = transform.position;
+            playerPosition = transform.position;
             Vector2 LastDir = playerControlScript.lastDirection;
 
             //sectu je at dostanu vedlejší tile

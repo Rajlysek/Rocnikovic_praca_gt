@@ -4,19 +4,18 @@ public class Item : MonoBehaviour
 {
    
 
-    [SerializeField]
-    private int quantity;
+    
+    public int quantity;
 
-    [SerializeField]
-    private ItemSO itemSO;
+    
+    public ItemSO itemSO;
 
     private InventoryManager inventoryManager;
     private SpriteRenderer spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = itemSO.itemIcon;
+        
     }
     void Start()
     {
@@ -47,5 +46,10 @@ public class Item : MonoBehaviour
            
 
         }
+    }
+    public void CreateItemOnGround()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = itemSO.itemIcon;
     }
 }

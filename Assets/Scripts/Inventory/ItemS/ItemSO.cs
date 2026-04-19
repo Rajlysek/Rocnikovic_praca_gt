@@ -13,7 +13,7 @@ public class ItemSO : ScriptableObject
     public string Description;
     public BoxCollider2D plantsCollider;
     public CurrentPhase currentPhase;
-
+    public ItemSO product;
     
     [ShowIf("isSeedable")]
     public TileBase firstPhase;

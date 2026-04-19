@@ -21,6 +21,7 @@ MonoBehaviour:
   Description: 
   plantsCollider: {fileID: 0}
   currentPhase: 0
+  product: {fileID: 11400000, guid: 1d90fbf25cd7f6447af13fc07d2cfcd7, type: 2}
   firstPhase: {fileID: 11400000, guid: a0179e742e909534f930eca3ac8f879f, type: 2}
   secondPhase: {fileID: 11400000, guid: 6d1ff6b115d13ed49af650cc9d42bd8c, type: 2}
   thirdPhase: {fileID: 11400000, guid: 78e2e20b99ad7324e9e331efd89f05d2, type: 2}

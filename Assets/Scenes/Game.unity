@@ -29922,12 +29922,28 @@ MonoBehaviour:
   farmManager: {fileID: 0}
   seedButton: {fileID: 106178314}
   button: {fileID: 0}
+  playerPosition: {x: 0, y: 0}
   playerStats: {fileID: 11400000, guid: f0af68f0475dd384b87523cefe467f26, type: 2}
 --- !u!4 &1316306071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1936024356382381231, guid: 1e631739718c94f4bbe27937b47308a4, type: 3}
   m_PrefabInstance: {fileID: 6456515781898619876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1316306072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316306042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956c462fe4b048a4cb973d88ac2d5cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickingUp
+  actionsOfPlayer: {fileID: 1316306070}
+  hoeTilamap: {fileID: 120933570}
+  itemPrefab: {fileID: 917134849596729046, guid: c39c5fe4af745f049a72f56fa3a5b61c, type: 3}
 --- !u!224 &1333849090 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2638467600806515949, guid: d9e9672c6542c2b4e91cd1ffe0843c12, type: 3}
@@ -77361,6 +77377,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4618918358075324203, guid: 1e631739718c94f4bbe27937b47308a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1316306070}
+    - targetCorrespondingSourceObject: {fileID: 4618918358075324203, guid: 1e631739718c94f4bbe27937b47308a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1316306072}
   m_SourcePrefab: {fileID: 100100000, guid: 1e631739718c94f4bbe27937b47308a4, type: 3}
 --- !u!1001 &6770536819321996555
 PrefabInstance:
