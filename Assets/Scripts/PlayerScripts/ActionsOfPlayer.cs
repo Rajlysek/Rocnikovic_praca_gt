@@ -1,6 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -19,6 +18,8 @@ public class ActionsOfPlayer : MonoBehaviour
     [SerializeField] private TileBase hoedDirtTileWetAloneSeed;
     [SerializeField] private TileBase plants;
     [SerializeField] private Tilemap plantsTilemap;
+
+    public WateringCanRefill wateringCanRefill;
 
     private Rigidbody2D rb2;
     private bool isActing = false;
@@ -119,7 +120,7 @@ public class ActionsOfPlayer : MonoBehaviour
 
                         break;
                 case 2:
-                    if (playerStats.stamina != 0 && playerStats.water != 0)
+                    if (playerStats.stamina != 0 && playerStats.water != 0 && wateringCanRefill.isInWell == false )
                     {
                         
                         _animator.SetTrigger("SpaceWasPressed");
