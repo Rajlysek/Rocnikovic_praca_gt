@@ -12,8 +12,9 @@ public class PickingUp : MonoBehaviour
     private Vector3Int FrontPlayerTile;
     public GameObject itemPrefab;
     GameObject itemInstance;
-   
-    
+    public FarmManager farmManager;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,13 +24,14 @@ public class PickingUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 playerPosition = actionsOfPlayer.playerPositionforPickup;
         FrontPlayerTile = actionsOfPlayer.FinalTilesPosition;
         if(hoeTilamap.HasTile(FrontPlayerTile) && Input.GetKeyDown(KeyCode.F))
         {
             if(FarmManager.farmedTiles[FrontPlayerTile].seedCurrentPhase == CurrentPhase.fourthPhase)
             {
-                itemInstance = Instantiate(itemPrefab);
-                itemInstance.transform.position = new Vector2(actionsOfPlayer.playerPosition.x, actionsOfPlayer.playerPosition.y);
+                itemInstance = Instantiate(itemPrefab, playerPosition, Quaternion.identity);
+                itemInstance.transform.position = new Vector3(playerPosition.x, playerPosition.y, transform.position.z);
                 Item itemScript;
                 itemScript = itemInstance.GetComponent<Item>();
                 itemScript.itemSO = FarmManager.farmedTiles[FrontPlayerTile].plantedSeed.product;
@@ -37,6 +39,7 @@ public class PickingUp : MonoBehaviour
                 Debug.Log(randomValue);
                 itemScript.quantity = randomValue;
                 itemScript.CreateItemOnGround();
+                farmManager.SeedPickedUp(FrontPlayerTile);
 
             }
                 

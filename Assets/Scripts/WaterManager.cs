@@ -22,7 +22,13 @@ public class WaterManager : MonoBehaviour
     {
         
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            WaterReplenish();
+        }
+    }
     public void WaterUsed(int usedWater)
     {
         if (playerStats.water != 0)
@@ -30,6 +36,7 @@ public class WaterManager : MonoBehaviour
             playerStats.water -= usedWater;
             Debug.Log(playerStats.water);
             UpdateWaterUI();
+            
         }
     }
     public void WaterReplenish()

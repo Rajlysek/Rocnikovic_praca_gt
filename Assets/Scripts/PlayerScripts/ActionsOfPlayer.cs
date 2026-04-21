@@ -28,6 +28,7 @@ public class ActionsOfPlayer : MonoBehaviour
     public GameObject seedButton;
     public Button button;
     public Vector2 playerPosition;
+    public Vector3 playerPositionforPickup;
     public PlayerStatsSO playerStats;
     
 
@@ -56,7 +57,8 @@ public class ActionsOfPlayer : MonoBehaviour
         {
             Action();
         }
-        Vector2 playerPosition = transform.position;
+        playerPosition = transform.position;
+        playerPositionforPickup = transform.position;
         Vector2 LastDir = playerControlScript.lastDirection;
 
         //sectu je at dostanu vedlejší tile
@@ -91,14 +93,10 @@ public class ActionsOfPlayer : MonoBehaviour
             Vector3Int playerPositionInAction = GrassTilemap.WorldToCell(playerPosition);
             switch (ItemID)
             {
-
                 case 1:
-
                     if (playerStats.stamina != 0)
                     {
                         //zkontroluju zda se nachazi na míste kde muze vyrýt hlinu
-                        
-                        
                         if (GrassTilemap.HasTile(isPlayerOnGrass) && GrassTilemap.HasTile(playerPositionInAction))
                         {
                             _animator.SetTrigger("SpaceWasPressed");
@@ -108,7 +106,6 @@ public class ActionsOfPlayer : MonoBehaviour
                                 HoeTilemap.SetTileFlags(FinalTilesPosition, TileFlags.None);
                                 StartCoroutine(WaitForAnimation());
                             }
-
                         }
                         else
                         {

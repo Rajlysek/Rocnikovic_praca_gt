@@ -28773,7 +28773,7 @@ Transform:
   m_GameObject: {fileID: 1145254928}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.98, y: 5.35, z: 0}
+  m_LocalPosition: {x: -9.627, y: 3.039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29923,6 +29923,7 @@ MonoBehaviour:
   seedButton: {fileID: 106178314}
   button: {fileID: 0}
   playerPosition: {x: 0, y: 0}
+  playerPositionforPickup: {x: 0, y: 0, z: 0}
   playerStats: {fileID: 11400000, guid: f0af68f0475dd384b87523cefe467f26, type: 2}
 --- !u!4 &1316306071 stripped
 Transform:
@@ -29944,6 +29945,7 @@ MonoBehaviour:
   actionsOfPlayer: {fileID: 1316306070}
   hoeTilamap: {fileID: 120933570}
   itemPrefab: {fileID: 917134849596729046, guid: c39c5fe4af745f049a72f56fa3a5b61c, type: 3}
+  farmManager: {fileID: 1210301853}
 --- !u!224 &1333849090 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2638467600806515949, guid: d9e9672c6542c2b4e91cd1ffe0843c12, type: 3}

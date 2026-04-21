@@ -161,4 +161,16 @@ public class FarmManager : MonoBehaviour
         }
         
     }
+    public void SeedPickedUp(Vector3Int seedPosition)
+    {
+        if (farmedTiles.ContainsKey(seedPosition))
+        {
+            
+            HoeTilemap.SetTile(seedPosition, null);
+            if (farmedTiles.Remove(seedPosition))
+            {
+                Debug.Log("Tile removed from farmedTiles");
+            }
+        }
+    }
 }

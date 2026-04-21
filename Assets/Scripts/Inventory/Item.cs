@@ -28,25 +28,45 @@ public class Item : MonoBehaviour
     {
        
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("colision");
             int leftOverItems = inventoryManager.AddItem(itemSO.itemName, quantity, itemSO.itemIcon, itemSO.Description);
-            if(leftOverItems <= 0)
+            if (leftOverItems <= 0)
             {
                 Destroy(gameObject);
             }
             else if (leftOverItems > 0)
-            { 
+            {
                 quantity = leftOverItems;
-                
+
             }
-           
+
 
         }
     }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        Debug.Log("colision");
+    //        int leftOverItems = inventoryManager.AddItem(itemSO.itemName, quantity, itemSO.itemIcon, itemSO.Description);
+    //        if(leftOverItems <= 0)
+    //        {
+    //            Destroy(gameObject);
+    //        }
+    //        else if (leftOverItems > 0)
+    //        { 
+    //            quantity = leftOverItems;
+    //            
+    //        }
+    //       
+    //
+    //    }
+    //}
     public void CreateItemOnGround()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
