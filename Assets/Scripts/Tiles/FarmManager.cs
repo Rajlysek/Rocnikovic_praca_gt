@@ -6,6 +6,7 @@ public class FarmManager : MonoBehaviour
 {
 
     static public Dictionary<Vector3Int, TileData> farmedTiles = new Dictionary<Vector3Int, TileData>();
+    
     public static FarmManager instance;
     [SerializeField] private Tilemap HoeTilemap;
     [SerializeField] private TileBase hoedDirtTileAlone;
