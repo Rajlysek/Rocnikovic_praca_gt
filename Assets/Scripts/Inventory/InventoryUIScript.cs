@@ -30,6 +30,7 @@ public class InventoryUIScript : MonoBehaviour
             if (UIInventoryBar != null)
             {
                 UIInventoryBar.SetActive(true);
+                
             }
         }
     }
