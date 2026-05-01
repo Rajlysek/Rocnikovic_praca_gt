@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueLines : MonoBehaviour
 {
     [SerializeField]
     private string[] lines;
+    [SerializeField]
+    private bool[] playerTalking;
+    [SerializeField]
+    private bool[] isChoice;
     public Dialogue DialogueBox;
+
+  
+
     private bool isIn;
     private bool isInDialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +28,7 @@ public class DialogueLines : MonoBehaviour
         {
             isInDialogue = true;
             Time.timeScale = 0;
-            DialogueBox.StartDialogue(this.lines);
+            DialogueBox.StartDialogue(this.lines, this.playerTalking, this.isChoice);
             
         }
 

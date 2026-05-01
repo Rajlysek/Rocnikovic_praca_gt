@@ -4,27 +4,35 @@ using System.Collections;
 using Unity.VisualScripting;
 using System;
 using UnityEngine.UI;
+using System.Collections.Generic;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public Image imageComponent;
     
     public float textSpeed;
-
+    public bool[] isPlayerTalking;
     private int index;
     private int talkingIndex;
+    public DialogueChoices dialogueChoices;
     public string[] lines;
+    public bool[] isChoice;
+    public Sprite[] otherPersonTalking;
     public Sprite[] playerTalking;
     public Sprite nonTalkingPlayer;
     public GameObject bar;
     public GameObject tilemapOfDialogue;
 
+
+ 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
         gameObject.SetActive(false);
-
+      
+       
+   
     }
 
     // Update is called once per frame
@@ -44,17 +52,22 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void StartDialogue(string[] Objectslines)
+    public void StartDialogue(string[] Objectslines, bool[] playerTalking, bool[] choice)
     {
-      
+
         StopAllCoroutines();
         imageComponent.sprite = nonTalkingPlayer;
         textComponent.text = string.Empty;
         lines = Objectslines;
+        isPlayerTalking = playerTalking;
+        isChoice = choice;
         gameObject.SetActive(true);
         index = 0;
         talkingIndex = 0;
-        bar.SetActive(false);
+        if (bar != null)
+        {
+            bar.SetActive(false);
+        }
         tilemapOfDialogue.SetActive(true);
         
         StartCoroutine(TypeLine());
@@ -65,13 +78,20 @@ public class Dialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            if(talkingIndex == 8)
+            if(talkingIndex >= playerTalking.Length)
             {
                 talkingIndex = 0;
             }
             textComponent.text += c;
-            imageComponent.sprite = playerTalking[talkingIndex];
-            talkingIndex++;
+            if (isPlayerTalking[index])
+            {
+                imageComponent.sprite = playerTalking[talkingIndex];
+            }
+            else
+            {
+                imageComponent.sprite = null;
+            }
+                talkingIndex++;
             yield return new WaitForSecondsRealtime(textSpeed);
         }
       
@@ -79,7 +99,12 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if (index < lines.Length - 1)
+        if (isChoice[index])
+        {
+            dialogueChoices.ButtonAppear();
+
+        }
+        else if (index < lines.Length - 1)
         {
             index++;
             imageComponent.sprite = nonTalkingPlayer;
@@ -92,8 +117,24 @@ public class Dialogue : MonoBehaviour
             Time.timeScale = 1;
             textComponent.text = string.Empty;
             imageComponent.sprite = nonTalkingPlayer;
-            bar.SetActive(true);
+            if(bar != null)
+            {
+                bar.SetActive(true);
+            }
             tilemapOfDialogue.SetActive(false);
         }
+    }
+    public void Erase()
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
+        textComponent.text = string.Empty;
+        imageComponent.sprite = nonTalkingPlayer;
+        if (bar != null)
+        {
+            bar.SetActive(true);
+        }
+        tilemapOfDialogue.SetActive(false);
+        dialogueChoices.buttonDisappear();
     }
 }
