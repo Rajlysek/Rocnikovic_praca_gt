@@ -22,7 +22,7 @@ public class Dialogue : MonoBehaviour
     public Sprite nonTalkingPlayer;
     public GameObject bar;
     public GameObject tilemapOfDialogue;
-
+    bool isChoosable = false;
 
  
     // Start is called before the first frame update
@@ -99,19 +99,23 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if (isChoice[index])
+        if (index < isChoice.Length && isChoice[index])
         {
-            dialogueChoices.ButtonAppear();
+            
+                isChoosable = true;
+                dialogueChoices.ButtonAppear();
+                return;
+            
 
         }
-        else if (index < lines.Length - 1)
+        if (index < lines.Length - 1 && !isChoosable)
         {
             index++;
             imageComponent.sprite = nonTalkingPlayer;
-            textComponent.text = string.Empty;
+            textComponent.text = string.Empty;  
             StartCoroutine(TypeLine());
         }
-        else
+        else if (!isChoosable)
         {
             gameObject.SetActive(false);
             Time.timeScale = 1;

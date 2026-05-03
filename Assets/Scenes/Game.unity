@@ -12546,6 +12546,7 @@ MonoBehaviour:
   - This well.. it might be as old as this land, or they say..
   - It's just some old well.
   playerTalking: 0101
+  isChoice: 00
   DialogueBox: {fileID: 248375788}
 --- !u!61 &1040051716
 BoxCollider2D:
@@ -69247,6 +69248,7 @@ MonoBehaviour:
     many untold stories.
   - He said he was sad he couldn't tell me all of them..
   playerTalking: 010101
+  isChoice: 00
   DialogueBox: {fileID: 248375788}
 --- !u!1 &1661897262
 GameObject:
