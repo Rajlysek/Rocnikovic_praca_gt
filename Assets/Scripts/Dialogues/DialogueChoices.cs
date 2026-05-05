@@ -1,9 +1,11 @@
 using System.Diagnostics.Tracing;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueChoices : MonoBehaviour
 {
+    //static public bool CanInteract = true;
     public GameObject dialogueUI;
     public GameObject dialogueTilemap;
     public Dialogue dialogue;
@@ -16,6 +18,9 @@ public class DialogueChoices : MonoBehaviour
     Button two;
     Button three;
     Button leave;
+
+    public BuyManager buyManager;
+    public SellManager sellManager;
 
 
 
@@ -30,7 +35,7 @@ public class DialogueChoices : MonoBehaviour
         if (Choice2 != null)
         {
             two = Choice2.GetComponent<Button>();
-
+            two.onClick.AddListener(ChoiceTwo);
         }
         if (Choice3 != null)
         {
@@ -50,10 +55,19 @@ public class DialogueChoices : MonoBehaviour
     {
 
     }
-    public void ChoiceOne()
+    public void ChoiceOne() //buy
     {
-
+        //CanInteract = false;
+        buyManager.BuyPanelAppear();
+        dialogue.Erase();
     }
+    public void ChoiceTwo() //sell
+    {
+        //CanInteract = false;
+        sellManager.SellPanelAppear();
+        dialogue.Erase();
+    }
+
     public void ChoiceLeave()
     {
         dialogue.Erase();

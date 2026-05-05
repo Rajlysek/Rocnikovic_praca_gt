@@ -24,7 +24,7 @@ public class DialogueLines : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isIn && Input.GetKeyDown(KeyCode.F) && !isInDialogue)
+        if (isIn && Input.GetKeyDown(KeyCode.F) && !isInDialogue)//DialogueChoices.CanInteract)
         {
             isInDialogue = true;
             Time.timeScale = 0;
