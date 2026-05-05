@@ -169,9 +169,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3949629906545587462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 228.24199, y: -35}
   m_SizeDelta: {x: 60.175, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8954204021174506945
@@ -308,9 +308,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3949629906545587462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 129.07724, y: -35}
   m_SizeDelta: {x: 138.1545, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1089613220474329397
@@ -449,9 +449,9 @@ RectTransform:
   - {fileID: 1919521472249504955}
   m_Father: {fileID: 3949629906545587462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 299.87335, y: -35}
   m_SizeDelta: {x: 83.0877, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &764743036628035587
@@ -658,6 +658,8 @@ MonoBehaviour:
   ItemName: {fileID: 860839477459100766}
   ItemImage: {fileID: 299433622412452186}
   Price: {fileID: 2488311754970481156}
+  buyManager: {fileID: 0}
+  button: {fileID: 7541670929762771494}
 --- !u!1 &8029582004884850272
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,9 +692,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3949629906545587462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 35, y: -35}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1239940096846186098

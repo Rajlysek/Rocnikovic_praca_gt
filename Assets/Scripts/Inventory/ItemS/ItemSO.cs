@@ -44,7 +44,7 @@ public class ItemSO : ScriptableObject
     [ShowIf("isCorn")]
     public TileBase fifthPhasev2;
 
-    [ShowIf("isSellable")]
+    
     public int price;
 
     public TileBase[] Phase;

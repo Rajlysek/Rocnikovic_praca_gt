@@ -19,13 +19,21 @@ MonoBehaviour:
   isSellable: 1
   isCorn: 0
   Description: 
+  plantsCollider: {fileID: 0}
   currentPhase: 0
+  product: {fileID: 0}
   firstPhase: {fileID: 0}
   secondPhase: {fileID: 0}
   thirdPhase: {fileID: 0}
   fourthPhase: {fileID: 0}
+  firstPhaseWet: {fileID: 0}
+  secondPhaseWet: {fileID: 0}
+  thirdPhaseWet: {fileID: 0}
+  fourthPhaseWet: {fileID: 0}
   timeToGrow: 0
   fifthPhase: {fileID: 0}
   fourthPhasev2: {fileID: 0}
   fifthPhasev2: {fileID: 0}
-  price: 25
+  price: 50
+  Phase: []
+  WetPhase: []

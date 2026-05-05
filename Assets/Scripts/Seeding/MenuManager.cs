@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    static public bool canOpenMenu = true;
     public Button resumeButton;
     public Button quitButton;
     public GameObject menuPanel;
@@ -16,7 +17,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canOpenMenu)
         {
             menuPanel.SetActive(true);
             Time.timeScale = 0;

@@ -30,14 +30,18 @@ MonoBehaviour:
   secondPhaseWet: {fileID: 11400000, guid: d58e8420eb4b52142b2486c68ad1599a, type: 2}
   thirdPhaseWet: {fileID: 11400000, guid: aa85fd68f145c4f49a457f69b7d5279d, type: 2}
   fourthPhaseWet: {fileID: 11400000, guid: 27044d514a0b53d43ba11f53b4dce51b, type: 2}
-  timeToGrow: 2
+  timeToGrow: 4
   fifthPhase: {fileID: 0}
   fourthPhasev2: {fileID: 0}
   fifthPhasev2: {fileID: 0}
-  price: 0
+  price: 1
   Phase:
+  - {fileID: 11400000, guid: 9b6ab56c9bad9b241b935746b9fbf8c9, type: 2}
   - {fileID: 11400000, guid: 4f11755a4d192ba4383ab1d95bf582f4, type: 2}
+  - {fileID: 11400000, guid: 3ffb835c00b801e47bce636666ab4fa6, type: 2}
   - {fileID: 11400000, guid: c0fe6ce017ea6164ba78b864aa02edf8, type: 2}
   WetPhase:
+  - {fileID: 11400000, guid: 4c81476a14e6a424fb32cfef36264e9c, type: 2}
   - {fileID: 11400000, guid: d58e8420eb4b52142b2486c68ad1599a, type: 2}
+  - {fileID: 11400000, guid: aa85fd68f145c4f49a457f69b7d5279d, type: 2}
   - {fileID: 11400000, guid: 27044d514a0b53d43ba11f53b4dce51b, type: 2}
