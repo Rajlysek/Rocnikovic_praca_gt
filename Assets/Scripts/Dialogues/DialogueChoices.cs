@@ -64,6 +64,7 @@ public class DialogueChoices : MonoBehaviour
     public void ChoiceTwo() //sell
     {
         //CanInteract = false;
+        Debug.Log("choice two");
         sellManager.SellPanelAppear();
         dialogue.Erase();
     }
