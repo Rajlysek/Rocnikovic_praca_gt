@@ -28,7 +28,7 @@ public class PickingUp : MonoBehaviour
         FrontPlayerTile = actionsOfPlayer.FinalTilesPosition;
         if(hoeTilamap.HasTile(FrontPlayerTile) && Input.GetKeyDown(KeyCode.F))
         {
-            if(FarmManager.farmedTiles[FrontPlayerTile].seedCurrentPhase == CurrentPhase.fourthPhase)
+            if(FarmManager.farmedTiles[FrontPlayerTile].seedCurrentPhase == CurrentPhase.fourthPhase && FarmManager.farmedTiles[FrontPlayerTile].hasSeed)
             {
                 itemInstance = Instantiate(itemPrefab, playerPosition, Quaternion.identity);
                 itemInstance.transform.position = new Vector3(playerPosition.x, playerPosition.y, transform.position.z);
