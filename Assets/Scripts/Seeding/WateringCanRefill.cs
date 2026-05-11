@@ -17,7 +17,7 @@ public class WateringCanRefill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isInWell);
+        
         if (isInWell && Input.GetKeyDown(KeyCode.Space) && actionsOfPlayer.ItemID == 2)
         {
             waterManager.WaterReplenish();

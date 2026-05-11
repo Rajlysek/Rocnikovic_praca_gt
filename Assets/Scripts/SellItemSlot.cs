@@ -16,6 +16,7 @@ public class SellItemSlot : MonoBehaviour
     public PlayerStatsSO playerStats;
     public InventoryManager inventoryManager;
     public SellManager sellManager;
+    public int quantity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,8 +31,9 @@ public class SellItemSlot : MonoBehaviour
     {
         
     }
-    public void GetInfoItem(ItemSO itemInfo)
+    public void GetInfoItem(ItemSO itemInfo, int quantity)
     {
+        this.quantity = quantity;
         thisItem = itemInfo;
         ItemName.enabled = true;
         ItemPrice.enabled = true;
@@ -40,35 +42,43 @@ public class SellItemSlot : MonoBehaviour
         ItemPrice.text = itemInfo.price.ToString();
         ItemImage.sprite = itemInfo.itemIcon;
     }
+    public void DeleteItemInfo()
+    {
+        
+        ItemName.enabled = true;
+        ItemPrice.enabled = true;
+        ItemImage.enabled = true;
+        ItemName.text = "None";
+        ItemPrice.text = "0";
+        ItemImage.sprite = null;
+    }
     public void ButtonClicked()
     {
         if (thisItem != null)
         {
-            if(playerStats != null)
+            if(playerStats != null && ItemName.text != "None")
             {
                 playerStats.money += thisItem.price;
 
             }
-            else
-            {
-                Debug.LogError("Chybí reference na playerStats ve slotu!");
-                return;
-            }
-                int position = 0;
+            
+            
             for (int i = 0; i < InventoryHoldingInfo.inventoryInfo.Count; i++)
             {
                 if(thisItem == InventoryHoldingInfo.inventoryInfo[i])
                 {
-                    position = i;
-                    InventoryHoldingInfo.quantityOfItemsInSlots[position] -= 1;
+                    
+                    InventoryHoldingInfo.quantityOfItemsInSlots[i] -= 1;
+                    quantity -= 1;
 
-                    if (InventoryHoldingInfo.quantityOfItemsInSlots[position] == 0)
+                    if (InventoryHoldingInfo.quantityOfItemsInSlots[i] == 0)
                     {
 
-                        InventoryHoldingInfo.inventoryInfo[position] = null;
-                        InventoryHoldingInfo.quantityOfItemsInSlots[position] = 0;
+                        InventoryHoldingInfo.inventoryInfo[i] = null;
+                        InventoryHoldingInfo.quantityOfItemsInSlots[i] = 0;
+                        DeleteItemInfo();  
                     }
-                    if (inventoryManager != null) inventoryManager.UpdateInventory(position);
+                    if (inventoryManager != null) inventoryManager.UpdateInventory(i);
                     if (sellManager != null) sellManager.SellableItemsInInventory();
                     break;
                 }

@@ -18,6 +18,7 @@ public class StaminaManager : MonoBehaviour
         if (firstStart)
         {
             playerStats.stamina = 100;
+            playerStats.money = 5;
             firstStart = false;
         }
        

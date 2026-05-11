@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 public class SellManager : MonoBehaviour
 {
     public SellItemSlot[] SellableSlots;
     public PlayerStatsSO playerStats;
+    public InventoryManager inventoryManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +19,7 @@ public class SellManager : MonoBehaviour
 
             SellPanelDisppear();
         }
+
     }
     public void SellPanelAppear()
     {
@@ -27,6 +30,11 @@ public class SellManager : MonoBehaviour
     {
         MenuManager.canOpenMenu = true;
         gameObject.SetActive(false);
+        for (int i = 0; i < inventoryManager.itemSlot.Length; i++) 
+        {
+            inventoryManager.itemSlot[i].EmptySlot();
+        }
+        inventoryManager.LoadInventory();
     }
     public void SellableItemsInInventory()
     {
@@ -36,11 +44,26 @@ public class SellManager : MonoBehaviour
         {
             if(index >= SellableSlots.Length)
             {
-                break;
+                  break;
             }
-            SellableSlots[index].GetInfoItem(InventoryHoldingInfo.inventoryInfo[index]);
+            if(InventoryHoldingInfo.inventoryInfo[index] != null)
+            {
+                SellableSlots[index].GetInfoItem(InventoryHoldingInfo.inventoryInfo[index], InventoryHoldingInfo.quantityOfItemsInSlots[index]);
+            }
+            else
+            {
+                SellableSlots[index].DeleteItemInfo();
+                
+            }
             index++;
 
+        }
+    }
+    public void CheckIfSold()
+    {
+        foreach(var item in SellableSlots)
+        {
+            
         }
     }
 }
