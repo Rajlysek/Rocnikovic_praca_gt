@@ -6,6 +6,9 @@ public class Tasks : MonoBehaviour
 {
     public static bool firstPlay = true;
     public static int CurrentTask;
+    public static bool thirdtask = false;
+    public static bool fourthtask = false;
+    public static bool fifthtask = false;
     public DialogueLines dialogueLines;
     public GameObject TaskBar;
     public TMP_Text taskOne;
@@ -40,6 +43,12 @@ public class Tasks : MonoBehaviour
                 break;
             case 2:
                 thirdTask();
+                break;
+            case 3:
+                fourthTask();
+                break;
+            case 4:
+                fifthTask();
                 break;
             default: 
                 TaskBar.SetActive(false);
@@ -76,22 +85,43 @@ public class Tasks : MonoBehaviour
     {
         taskOne.text = "Plant the seed";
         taskTwo.text = "TIP: you can use the hoe by picking it and pressing spacebar";
+        if(!isWaiting && thirdtask)
+        {
+            StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
+        }
     }
-   
+    public void fourthTask()
+    {
+        taskOne.text = "Water the plant";
+        taskTwo.text = "TIP: you can water the plants by picking the watering can and pressing spacebar";
+        if (!isWaiting && fourthtask)
+        {
+            StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
+        }
+    }
+    public void fifthTask()
+    {
+        taskOne.text = "Grow the seed";
+        taskTwo.text = "TIP: go into your home and sleep, grown plant can be picked up by pressing f";
+        if(!isWaiting && fifthtask)
+        {
+            StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
+        }
+    }
+
+
     private IEnumerator CompleteTaskSequence(float waitBeforeDialog, int taskIndexToPlay, float waitBeforeNextTask)
     {
         isWaiting = true; // Zamkneme
 
-        // 1. Čekáme před zobrazením dialogu
+      
         yield return new WaitForSecondsRealtime(waitBeforeDialog);
 
-        // 2. Spustíme dialog
+
         dialogueLinesArray[taskIndexToPlay].StartDialog();
 
-        // 3. Čekáme určený čas, aby hráč mohl dialog vstřebat
-        yield return new WaitForSecondsRealtime(waitBeforeNextTask);
+        yield return new WaitForSecondsRealtime(waitBeforeNextTask);//
 
-        // 4. Přepneme úkol a odemkneme skript pro další akci
         CurrentTask++;
         isWaiting = false;
     }

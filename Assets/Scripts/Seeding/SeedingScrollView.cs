@@ -61,6 +61,7 @@ public class SeedingScrollView : MonoBehaviour
         InventoryHoldingInfo.quantityOfItemsInSlots[position] -= 1;
         Debug.Log(InventoryHoldingInfo.quantityOfItemsInSlots[position]);
         inventoryManager.UpdateInventory(position);
+        Tasks.thirdtask = true;
         if (InventoryHoldingInfo.quantityOfItemsInSlots[position] == 0)
         {
             

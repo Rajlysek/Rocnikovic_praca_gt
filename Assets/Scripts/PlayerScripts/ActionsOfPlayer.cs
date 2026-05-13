@@ -128,6 +128,7 @@ public class ActionsOfPlayer : MonoBehaviour
                         {
                             farmManager.WettingTheTile(FinalTilesPosition);
                             StartCoroutine(WaitForAnimation());
+                            Tasks.fourthtask = true;
 
                         }
                         else

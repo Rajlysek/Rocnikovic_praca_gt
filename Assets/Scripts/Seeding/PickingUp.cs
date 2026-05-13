@@ -40,6 +40,7 @@ public class PickingUp : MonoBehaviour
                 itemScript.quantity = randomValue;
                 itemScript.CreateItemOnGround();
                 farmManager.SeedPickedUp(FrontPlayerTile);
+                Tasks.fifthtask = true;
 
             }
                 
