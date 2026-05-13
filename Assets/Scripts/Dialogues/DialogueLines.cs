@@ -15,7 +15,7 @@
 
         private bool isIn;
         private bool isInDialogue;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        // called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
 
@@ -41,7 +41,7 @@
     
         private void OnTriggerExit2D(Collider2D collision)
         {
-            isInDialogue = false;//
+            isInDialogue = false;//+
             isIn = false;
         }
         public void StartDialog()

@@ -3,6 +3,8 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryMenu;
+    public GameObject barUi;
+    public GameObject barTilemap;
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     public GameObject Seeding;
@@ -24,7 +26,11 @@ public class InventoryManager : MonoBehaviour
             {
                 Seeding.SetActive(true);
             }
-
+            if (barUi == null)
+            {
+                barUi.SetActive(false);
+                barTilemap.SetActive(false);
+            }
             menuActivated = false;
         }
         else if (Input.GetKeyDown(KeyCode.I) && !menuActivated)
@@ -35,8 +41,14 @@ public class InventoryManager : MonoBehaviour
             {
                 Seeding.SetActive(false);
             }
+            if (barUi == null)
+            {
 
+                barTilemap.SetActive(true);
+                barUi.SetActive(true);
+            }
             menuActivated = true;
+
         }
     }
 

@@ -10,10 +10,7 @@ public class BarInventorySlot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        barInventory = GameObject.Find("BarInventory").GetComponent<BarInventory>();
-        barInventorySelected = GameObject.Find("SelectedSlots").GetComponent<BarInventorySelected>();
-        barInventoryUnselected = GameObject.Find("UnselectedSlots").GetComponent<BarInventoryUnselected>();
-        barInventory.DeselectAllSlots();
+     
 
     }
 
