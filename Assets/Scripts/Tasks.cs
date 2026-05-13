@@ -18,7 +18,6 @@ public class Tasks : MonoBehaviour
        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (firstPlay)
@@ -59,9 +58,10 @@ public class Tasks : MonoBehaviour
         taskTwo.text = "TIP: Press I to open the inventory";
         if (Input.GetKeyDown(KeyCode.I))
         {
-            StartCoroutine(WaitAndPlayDialog(3f, CurrentTask));
-
+            StartCoroutine(WaitAndPlayDialog(1f, CurrentTask));
             CurrentTask++;
+
+
         }
     }
     private IEnumerator WaitAndPlayDialog(float delaySeconds, int taskIndexToPlay)
@@ -72,5 +72,6 @@ public class Tasks : MonoBehaviour
       
         
         dialogueLinesArray[taskIndexToPlay].StartDialog();
+        
     }
 }

@@ -37,16 +37,17 @@
         {
             Debug.Log("is in");
             isIn = true;
-        }
+        }//
+    
         private void OnTriggerExit2D(Collider2D collision)
         {
-            isInDialogue = false;
+            isInDialogue = false;//
             isIn = false;
         }
         public void StartDialog()
         {
             isInDialogue = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0;///
             DialogueBox.StartDialogue(lines, playerTalking, isChoice);
         }
     }

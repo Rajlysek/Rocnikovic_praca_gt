@@ -53,7 +53,7 @@ public class PlayerControl : MonoBehaviour
         //}
 
 
-        if (input != Vector2.zero)
+        if (input != Vector2.zero && Time.timeScale != 0f)
         {
             PlayerMovement = true;
         }
@@ -62,7 +62,7 @@ public class PlayerControl : MonoBehaviour
             PlayerMovement = false;
         }
 
-        if (PlayerMovement)
+        if (PlayerMovement && Time.timeScale != 0f)
         {
             _animator.SetFloat("InputX", input.x);
             _animator.SetFloat("InputY", input.y);
@@ -73,7 +73,7 @@ public class PlayerControl : MonoBehaviour
 
         _animator.SetBool("isMoving", PlayerMovement);
         ///////////////////
-        if (ShiftIsHeld && PlayerMovement)
+        if (ShiftIsHeld && PlayerMovement && Time.timeScale != 0f)
         {
             _animator.SetBool("isRunning", true);
             moveSpeed = 10f;
