@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour
             {
                 Seeding.SetActive(true);
             }
-            if (barUi == null)
+            if(barUi != null && barTilemap != null)
             {
                 barUi.SetActive(false);
                 barTilemap.SetActive(false);
@@ -41,7 +41,7 @@ public class InventoryManager : MonoBehaviour
             {
                 Seeding.SetActive(false);
             }
-            if (barUi == null)
+            if (barUi != null && barTilemap != null)
             {
 
                 barTilemap.SetActive(true);

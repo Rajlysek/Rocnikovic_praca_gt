@@ -59,6 +59,10 @@ public class SellItemSlot : MonoBehaviour
             if(playerStats != null && ItemName.text != "None")
             {
                 playerStats.money += thisItem.price;
+                if (!Tasks.sixthtask)
+                {
+                    Tasks.sixthtask = true;
+                }
 
             }
             

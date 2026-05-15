@@ -9,6 +9,8 @@ public class Tasks : MonoBehaviour
     public static bool thirdtask = false;
     public static bool fourthtask = false;
     public static bool fifthtask = false;
+    public static bool sixthtask = false;
+    public static bool seventhtask = false;
     public DialogueLines dialogueLines;
     public GameObject TaskBar;
     public TMP_Text taskOne;
@@ -49,6 +51,12 @@ public class Tasks : MonoBehaviour
                 break;
             case 4:
                 fifthTask();
+                break;
+            case 5:
+                sixthTask();
+                break;
+            case 6:
+                seventhTask();
                 break;
             default: 
                 TaskBar.SetActive(false);
@@ -104,6 +112,24 @@ public class Tasks : MonoBehaviour
         taskOne.text = "Grow the seed";
         taskTwo.text = "TIP: go into your home and sleep, grown plant can be picked up by pressing f";
         if(!isWaiting && fifthtask)
+        {
+            StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
+        }
+    }
+    public void sixthTask()
+    {
+        taskOne.text = "Sell the seed";
+        taskTwo.text = "TIP: go into town and find shop, you can interact by pressing f";
+        if (!isWaiting && sixthtask)
+        {
+            StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
+        }
+    }
+    public void seventhTask()
+    {
+        taskOne.text = "Buy the seed";
+        taskTwo.text = "TIP: go into town and find shop, you can interact by pressing f";
+        if (!isWaiting && seventhtask)
         {
             StartCoroutine(CompleteTaskSequence(2f, CurrentTask, 3f));
         }

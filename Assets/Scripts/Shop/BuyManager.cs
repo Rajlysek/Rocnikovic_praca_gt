@@ -73,7 +73,10 @@ public class BuyManager : MonoBehaviour
             item.GetComponent<SpriteRenderer>().sprite = itembuy.itemIcon;
             item.GetComponent<Item>().quantity = 1;
             item.transform.position = new Vector3(playerPosition.x, playerPosition.y, transform.position.z);
-
+            if (!Tasks.seventhtask)
+            {
+                Tasks.seventhtask = true;
+            }
 
         }
     } 

@@ -4680,10 +4680,70 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 171311363012151617, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
+    - target: {fileID: 697009281630273969, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
+    - target: {fileID: 933315573304763221, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 933315573304763221, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 933315573304763221, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 933315573304763221, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899592278983566146, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
+    - target: {fileID: 4204894043646089822, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
+    - target: {fileID: 4428976212777889925, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
+    - target: {fileID: 4874963368448924139, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
     - target: {fileID: 6176004849082627865, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
       propertyPath: m_Name
       value: Starting Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 7445614694129272951, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445614694129272951, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445614694129272951, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445614694129272951, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812499507902843492, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
+      propertyPath: DialogueBox
+      value: 
+      objectReference: {fileID: 918323174}
     - target: {fileID: 8870869401116613818, guid: 8518346ec5f81734b9d21e1bf94f44d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 266.23206
